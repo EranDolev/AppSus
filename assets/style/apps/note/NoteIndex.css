@@ -1,0 +1,40 @@
+.keep-index {
+    background-color: #5aaccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.note-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.note-list ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 10px;
+}
+
+.note-list li {
+    border-radius: 1em;
+    border: 2px solid grey;
+    padding: .825em;
+    background: #d5aa73;
+}
+
+.notes-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 10px;
+    border-radius: 1em;
+    border: 2px solid grey;
+}
