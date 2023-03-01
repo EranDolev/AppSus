@@ -6,6 +6,7 @@ import EmailDetails from './apps/email/pages/EmailDetails.js'
 import Note from './apps/keep/pages/NoteIndex.js'
 import NoteDetails from './apps/keep/pages/NoteDetails.js'
 
+import EmailCompose from './apps/email/cmps/EmailCompose.js'
 // import Keep from './apps/keep/pages/NoteIndex.js'
 // import AboutUs from './apps/missbook/pages/BookIndex.js'
 
@@ -38,11 +39,20 @@ const routerOptions = {
 			path: '/apps/keep/:noteId',
 			component: NoteDetails,
 		},
+		{
+			path: '/apps/email/email-compose/',
+			component: EmailCompose,
+		}
+		// {
+		// 	path: '/app/keep',
+		// 	component: Keep,
+		// },
 		// {
 		// 	path: '/app/missBook',
 		// 	component: missBook,
 		// },
-	],
+	]
 }
+
 
 export const router = createRouter(routerOptions)
