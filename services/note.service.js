@@ -36,7 +36,7 @@ function _createNotes() {
                 type: 'NoteImg', 
                 isPinned: false, 
                 info: { 
-                    url: 'http://some-img/me', 
+                    url: "/assets/img/my-img.jpg", 
                     title: 'Bobi and Me' 
                 }, 
                 style: { 
