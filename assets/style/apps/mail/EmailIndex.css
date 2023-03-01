@@ -13,3 +13,17 @@
     padding: 1em;
     background: #bf8080;
 }
+
+.email-list ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 10px;
+}
+
+.email-list li {
+    border-radius: 1em;
+    border: 1px solid grey;
+    border-top: 1px solid grey;
+}
