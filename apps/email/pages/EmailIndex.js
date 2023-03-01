@@ -1,4 +1,5 @@
 import { EmailService } from '../../../services/Email.services.js'
+import  EmailList  from '../cmps/EmailList.js'
 
 export default {
     template: `
@@ -19,6 +20,10 @@ export default {
                 this.emails = emails
             })
     },
+    components: {
+        EmailList,
+    }
+
 
 }
 

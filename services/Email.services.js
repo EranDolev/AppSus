@@ -1,12 +1,13 @@
 'use strict'
-import { utilService } from './util.service.js'
-import { storageService } from './async-storage.service'
 
-const EMAIL_KEY = 'emailDB'
+import { utilService } from './util.service.js'
+import { storageService } from './async-storage.service.js'
+
+const EMAIL_KEY = "emailDB"
 
 _createEmails()
 
-export const emailService = {
+export const EmailService = {
     query,
     get,
     remove,
@@ -27,26 +28,27 @@ function _createEmails() {
             from: 'momo@momo.com',
             to: 'user@appsus.com'
         }]
+        utilService.saveToStorage(EMAIL_KEY, emails)
     }
 }
 
 function query(filterBy = {}) {
     return storageService.query(EMAIL_KEY)
-        // .then(emails => {
-        //     if (filterBy.txt) {
-        //         const regex = new RegExp(filterBy.txt, 'i')
-        //         emails = emails.filter(email => regex.test(email.from))
-        //     }
-        //     if (filterBy.minPrice) {
-        //         emails = emails.filter(email => email.listPrice.amount >= filterBy.minPrice)
-        //     }
-        //     return emails
-        // })
+    // .then(emails => {
+    //     if (filterBy.txt) {
+    //         const regex = new RegExp(filterBy.txt, 'i')
+    //         emails = emails.filter(email => regex.test(email.from))
+    //     }
+    //     if (filterBy.minPrice) {
+    //         emails = emails.filter(email => email.listPrice.amount >= filterBy.minPrice)
+    //     }
+    //     return emails
+    // })
 }
 
 function get(emailId) {
     return storageService.get(EMAIL_KEY, emailId)
-        // .then(_setNextPrevEmailId)
+    // .then(_setNextPrevEmailId)
 }
 
 function remove(emailId) {
