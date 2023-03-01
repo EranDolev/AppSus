@@ -4,7 +4,7 @@ export default {
     props: ['notes'],
     template: `
     <section class="note-list">
-        <ul>
+        <ul class="note-card">
             <li v-for="note in notes" :key="note.id"> 
                 <RouterLink :to="'/apps/keep/'+note.id"><NotePreview :note="note"/></RouterLink>
             </li>
