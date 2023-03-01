@@ -1,0 +1,25 @@
+/** @format */
+
+.form-compose {
+  background-color: #79c9ce;
+  padding: 1em;
+}
+
+.form-compose input {
+  border-radius: 1.2em;
+  border: 2px solid grey;
+}
+
+.form-compose button {
+    color: grey;
+  border-radius: 2em;
+  border: 2px solid grey;
+  opacity: 1;
+  transition: .4s;
+}
+
+.form-compose button:hover {
+    color: green;
+    border: 2px solid green;
+    opacity: .8;
+}

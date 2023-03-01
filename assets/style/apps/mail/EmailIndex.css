@@ -27,3 +27,13 @@
     border: 2px solid grey;
     padding: .825em;
 }
+
+.email-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 10px;
+    border-radius: 1em;
+    border: 2px solid grey;
+}

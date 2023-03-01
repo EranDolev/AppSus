@@ -17,3 +17,6 @@
 /* Apps */
 @import 'apps/mail/EmailIndex.css';
 @import 'apps/note/NoteIndex.css';
+
+/* EMAIL */
+@import 'apps/mail/compose.css';

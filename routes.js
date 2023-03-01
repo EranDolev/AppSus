@@ -2,6 +2,7 @@ import HomePage from './views/HomePage.js'
 import AboutUs from './views/AboutUs.js'
 import Email from './apps/email/pages/EmailIndex.js'
 import EmailDetails from './apps/email/pages/EmailDetails.js'
+import EmailCompose from './apps/email/cmps/EmailCompose.js'
 // import Keep from './apps/keep/pages/NoteIndex.js'
 // import AboutUs from './apps/missbook/pages/BookIndex.js'
 
@@ -25,6 +26,10 @@ const routerOptions = {
 		{
 			path: '/apps/email/:emailId',
 			component: EmailDetails,
+		},
+		{
+			path: '/apps/email/email-compose/',
+			component: EmailCompose,
 		},
 		// {
 		// 	path: '/app/keep',

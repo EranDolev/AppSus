@@ -33,7 +33,7 @@ function _createEmails() {
             id: 'e102',
             subject: 'Still miss you!',
             body: 'heyyyy',
-            isRead: false,
+            isRead: true,
             sentAt: 1551133930694,
             removedAt: null,
             from: 'momo@momo.com',
