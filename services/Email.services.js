@@ -12,6 +12,7 @@ export const EmailService = {
     get,
     remove,
     save,
+    createUser,
     // getEmpty,
 }
 
@@ -30,6 +31,14 @@ function _createEmails() {
         }]
         utilService.saveToStorage(EMAIL_KEY, emails)
     }
+}
+
+function createUser() {
+    const loggedinUser = {
+        email: 'user@appsus.com',
+        fullname: 'Mahatma Appsus'
+    }
+    return loggedinUser
 }
 
 function query(filterBy = {}) {
