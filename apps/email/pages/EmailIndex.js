@@ -1,6 +1,7 @@
 import { EmailService } from '../../../services/Email.services.js'
 import EmailList from '../cmps/EmailList.js'
 import EmailFilter from '../cmps/EmailFilter.js'
+import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
     template: `
@@ -10,7 +11,8 @@ export default {
             <EmailList
                 :emails="filteredBooks"
                  /> -->
-    <EmailList :emails = "emails"/>
+                 
+    <EmailList :emails = "emails" @remove="removeEmail"/>
     <pre> {{ user }} </pre>
     </section>
     `,
@@ -28,6 +30,19 @@ export default {
             })
         this.user = EmailService.createUser()
         console.log('EmailService.createUser(): ', EmailService.createUser());
+    },
+    methods: {
+        removeEmail(emailId) {
+            EmailService.remove(emailId)
+                .then(() => {
+                    const idx = this.emails.findIndex(email => email.id === emailId)
+                    this.emails.splice(idx, 1)
+                    eventBus.emit('show-msg', { txt: 'email removed', type: 'success' })
+                })
+                .catch(err => {
+                    eventBus.emit('show-msg', { txt: 'email remove failed', type: 'error' })
+                })
+        },
     },
     components: {
         EmailList,

@@ -36,7 +36,7 @@ export default {
     `,
     data() {
         return {
-            email: '',
+            // email: '',
             subject: '',
             body: '',
 
@@ -48,11 +48,12 @@ export default {
         EmailService.get(emailId)
             .then(email => this.email = email)
     },
-    save() {
+    save(emailId) {
         EmailService.save(this.email)
             .then(savedEmail => {
                 eventBus.emit('show-msg', { txt: 'Email saved', type: 'success' })
                 this.$router.push('/email')
+                // this.email.unshift(newBook)
 
             })
             .catch(err => {
