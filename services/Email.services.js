@@ -1,12 +1,12 @@
 'use strict'
 import { utilService } from './util.service.js'
-import { storageService } from './async-storage.service'
+import { storageService } from './async-storage.service.js'
 
 const EMAIL_KEY = 'emailDB'
 
 _createEmails()
 
-export const emailService = {
+export const EmailService = {
     query,
     get,
     remove,
