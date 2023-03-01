@@ -15,30 +15,23 @@ export default {
                 <RouterLink :to="'/apps/email/'+email.id"><EmailPreview :email="email"/></RouterLink>
             </li>
         </ul>
-        <RouterLink :to="'/apps/email/email-compose/'" @save="onSaveEmail"><button class="btn-compose">Compose</button></RouterLink>
+        <EmailCompose/>
+        <!-- <RouterLink :to="'/apps/email/email-compose/'" @save="onSaveEmail"><button class="btn-compose">Compose</button></RouterLink> -->
         <!-- <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose">Compose</button></RouterLink> -->
     </section>
+
     `,
     methods: {
         showDetails(emailId) {
             this.$emit('show-details', emailId)
         },
-        onSaveEmail(newEmail) {
-            this.emails.unshift(newEmail)
-        },
         remove(emailId) {
             this.$emit('remove', emailId)
-            // .then(savedBook => {
-            // eventBus.emit('show-msg', { txt: 'Email deleted', type: 'success' })
-            // this.$router.push('/book')
-            // this.book = bookService.getEmptyBook()
-            // this.$emit('book-saved', savedBook)
         },
     },
 
     components: {
         EmailPreview,
         EmailCompose,
-        EmailService,
     }
 }
