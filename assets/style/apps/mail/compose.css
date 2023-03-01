@@ -1,25 +1,26 @@
 /** @format */
 
 .form-compose {
-  background-color: #79c9ce;
+  height: 50vh;
+  border-radius: 1em;
+  margin-inline: 10px;
+  border: var(--secondary-clr4) solid;
+  font-family: roboto;
+  background: radial-gradient(
+    ellipse at bottom,
+    var(--secondary-clr1) -20%,
+    var(--secondary-clr2) 130%
+  );
+  /* background-color: var(--secondary-clr2); */
   padding: 1em;
 }
 
 .form-compose input {
+  outline: none;
   border-radius: 1.2em;
   border: 2px solid grey;
 }
-
-.form-compose button {
-    color: grey;
-  border-radius: 2em;
-  border: 2px solid grey;
-  opacity: 1;
-  transition: .4s;
-}
-
-.form-compose button:hover {
-    color: green;
-    border: 2px solid green;
-    opacity: .8;
+.form-compose input:focus {
+  box-shadow: inset 2px 2px 0 #dadce0, inset -2px -2px 0 #dadce0,
+    0 2px 2px 0 rgb(60 64 67 / 30%), 0 2px 3px 2px rgb(60 64 67 / 15%);
 }

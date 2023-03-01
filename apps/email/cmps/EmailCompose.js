@@ -4,8 +4,7 @@ import { eventBus } from "../../../services/event-bus.service.js"
 export default {
     // props: ['email'],
     template: `
-        <button @click="toggleModal">Compose</button>
-        <section class="email-compose" v-if="showModal">
+        <section class="email-compose">
             <h2>New Message</h2>
             <form class="form-compose" @submit.prevent="save">
                 <!-- <input 
@@ -36,71 +35,43 @@ export default {
             </form>
         </section>
     `,
-    data() {
-        return {
-            showModal: false,
-            email: {
-                id: null,
-                subject: '',
-                body: '',
-                to: '',
+        data() {
+            return {
+                email: {
+                    id: null,
+                    subject: '',
+                    body: '',
+                    to: '',
+                }
             }
-        }
-    },
+        },
+        methods: {
+            save() {
+                console.log('email:', this.email);
+                EmailService.save(this.email)
+                    .then(savedEmail => {
+                        eventBus.emit('show-msg', { txt: 'Email saved', type: 'success' })
+                        this.email = savedEmail
+                        console.log('savedEmail', savedEmail);
+                        this.$router.push('/apps/email')
+                        // this.email.unshift(newBook)
+        
+                    })
+                    .catch(err => {
+                        eventBus.emit('show-msg', { txt: 'Email send failed', type: 'error' })
+                    })
+                    // this.$router.push('/apps/email')
+          }
+        },
     created() {
         const { emailId } = this.$route.params
         EmailService.get(emailId)
             .then(email => this.email = email)
-    },
-    methods: {
-        toggleModal() {
-            this.showModal = !this.showModal
-        },
-        save() {
-            console.log('email:', this.email);
-            EmailService.save(this.email)
-                .then(savedEmail => {
-                    eventBus.emit('show-msg', { txt: 'Email saved', type: 'success' })
-                    this.email = savedEmail
-                    console.log('savedEmail', savedEmail);
-                    // this.$router.push('/email')
-                    // this.email.unshift(newBook)
-
-                })
-                .catch(err => {
-                    eventBus.emit('show-msg', { txt: 'Email send failed', type: 'error' })
-                })
-        }
     },
     components: {
         EmailService,
         eventBus,
     }
 }
-
-// methods: {
-//     save() {
-//         console.log('email:', this.email);
-//         EmailService.save(this.email)
-//             .then(savedEmail => {
-//                 eventBus.emit('show-msg', { txt: 'Email saved', type: 'success' })
-//                 this.email = savedEmail
-//                 console.log('savedEmail', savedEmail);
-//                 // this.$router.push('/email')
-//                 // this.email.unshift(newBook)
-
-//             })
-//             .catch(err => {
-//                 eventBus.emit('show-msg', { txt: 'Email send failed', type: 'error' })
-//             })
-//     },
-// },
-
-
-    // created() {
-    //     const { emailId } = this.$route.params
-    //     EmailService.get(emailId)
-    //         .then(email => this.email = email)
-    // },
 
 

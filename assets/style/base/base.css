@@ -15,6 +15,7 @@ body {
     var(--secondary-clr2),
     var(--secondary-clr1)
   );
+  height: 100vh;
 }
 
 h1,

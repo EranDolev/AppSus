@@ -1,5 +1,4 @@
 import EmailPreview from "../cmps/EmailPreview.js"
-import EmailCompose from "./EmailCompose.js"
 import { EmailService } from '../../../services/Email.services.js'
 import { eventBus } from "../../../services/event-bus.service.js"
 
@@ -15,9 +14,9 @@ export default {
                 <RouterLink :to="'/apps/email/'+email.id"><EmailPreview :email="email"/></RouterLink>
             </li>
         </ul>
-        <EmailCompose/>
+        <!-- <RouterLink :to="/apps/email/email-compose"></RouterLink> -->
         <!-- <RouterLink :to="'/apps/email/email-compose/'" @save="onSaveEmail"><button class="btn-compose">Compose</button></RouterLink> -->
-        <!-- <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose">Compose</button></RouterLink> -->
+        <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose"><i class="fa-solid fa-pencil"></i> Compose</button></RouterLink>
     </section>
 
     `,
@@ -32,6 +31,5 @@ export default {
 
     components: {
         EmailPreview,
-        EmailCompose,
     }
 }
