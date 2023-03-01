@@ -7,40 +7,46 @@ export default {
         <section class="email-compose">
             <h2>New Message</h2>
             <form class="form-compose" @submit.prevent="save">
-                <input 
+                <!-- <input 
                 type="text"
-                placeholder="your-email">
+                placeholder="your-email"> -->
             
                 <label class="send to">
                     to:
-                    <input v-model="this.email"
+                    <input v-model="email.to"
                     type="text"
                     placeholder="some@email.com">
                 </label>
              
                 <label class="subject">
                     subject:
-                    <input v-model="this.subject"
+                    <input v-model="email.subject"
                     type="text">
                 </label>
                 
                 <label class="body">
                     body:
-                    <input v-model="this.body"
+                    <input v-model="email.body"
                     type="text">
                 </label>
-                <RouterLink to="/apps/email"> <button class="btn-send">Send</button></RouterLink>
+                <button class="btn-send">Send</button>
+                <!-- <RouterLink to="/apps/email"></RouterLink> -->
                
             </form>
         </section>
     `,
     data() {
         return {
-            // email: '',
-            subject: '',
-            body: '',
+            email: {
+                id: null,
+                subject: '',
+                body: '',
+                to: '',
+            },
+            // ,
+            // 
 
-            email: null
+            // email: null
         }
     },
     created() {
@@ -48,11 +54,14 @@ export default {
         EmailService.get(emailId)
             .then(email => this.email = email)
     },
-    save(emailId) {
+    save() {
+        console.log('email:', this.email);
         EmailService.save(this.email)
             .then(savedEmail => {
                 eventBus.emit('show-msg', { txt: 'Email saved', type: 'success' })
-                this.$router.push('/email')
+                this.email = savedEmail
+                console.log('savedEmail', savedEmail);
+                // this.$router.push('/email')
                 // this.email.unshift(newBook)
 
             })
