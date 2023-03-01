@@ -43,21 +43,6 @@ export default {
                     eventBus.emit('show-msg', { txt: 'email remove failed', type: 'error' })
                 })
         },
-        save(email) {
-            console.log(email)
-            EmailService.save(email)
-                .then(savedEmail => {
-                    eventBus.emit('show-msg', { txt: 'Email saved', type: 'success' })
-                    email = savedEmail
-                    console.log('savedEmail', savedEmail);
-                    // this.$router.push('/email')
-                    // this.email.unshift(newBook)
-    
-                })
-                .catch(err => {
-                    eventBus.emit('show-msg', { txt: 'Email send failed', type: 'error' })
-                })
-        },
     },
     components: {
         EmailList,

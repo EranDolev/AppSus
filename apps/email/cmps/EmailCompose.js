@@ -4,8 +4,7 @@ import { eventBus } from "../../../services/event-bus.service.js"
 export default {
     // props: ['email'],
     template: `
-        <button @click="toggleModal">Compose</button>
-        <section class="email-compose" v-if="showModal">
+        <section class="email-compose">
             <h2>New Message</h2>
             <form class="form-compose" @submit.prevent="save">
                 <!-- <input 
@@ -38,7 +37,6 @@ export default {
     `,
         data() {
             return {
-                showModal: false,
                 email: {
                     id: null,
                     subject: '',
@@ -48,9 +46,6 @@ export default {
             }
         },
         methods: {
-            toggleModal() {
-                this.showModal = !this.showModal
-            },
             save() {
                 console.log('email:', this.email);
                 EmailService.save(this.email)
@@ -58,13 +53,14 @@ export default {
                         eventBus.emit('show-msg', { txt: 'Email saved', type: 'success' })
                         this.email = savedEmail
                         console.log('savedEmail', savedEmail);
-                        // this.$router.push('/email')
+                        this.$router.push('/apps/email')
                         // this.email.unshift(newBook)
         
                     })
                     .catch(err => {
                         eventBus.emit('show-msg', { txt: 'Email send failed', type: 'error' })
                     })
+                    // this.$router.push('/apps/email')
           }
         }
     }
