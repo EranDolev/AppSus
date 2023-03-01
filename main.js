@@ -5,21 +5,24 @@ import { router } from './routes.js'
 import AppHeader from './cmps/AppHeader.js'
 import AppFooter from './cmps/AppFooter.js'
 import UserMsg from './cmps/UserMsg.js'
+import HomeApps from './cmps/HomeApps.js'
 
 const options = {
-	template: `
+    template: `
         <section>
             <AppHeader />
             <RouterView />
-            <AppFooter />
+            <!-- <HomeApps/> -->
             <UserMsg />
+            <AppFooter />
         </section>
     `,
-	components: {
-		AppHeader,
-		AppFooter,
-		UserMsg,
-	},
+    components: {
+        AppHeader,
+        AppFooter,
+        UserMsg,
+        HomeApps,
+    },
 }
 
 const app = createApp(options)

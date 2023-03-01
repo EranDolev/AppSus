@@ -6,6 +6,8 @@
   margin-inline: 10px;
   border: var(--secondary-clr4) solid;
   font-family: roboto;
+  display: grid;
+  grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 2fr;
   background: radial-gradient(
     ellipse at bottom,
     var(--secondary-clr1) -20%,
@@ -21,6 +23,6 @@
   border: 2px solid grey;
 }
 .form-compose input:focus {
-  box-shadow: inset 2px 2px 0 #dadce0, inset -2px -2px 0 #dadce0,
-    0 2px 2px 0 rgb(60 64 67 / 30%), 0 2px 3px 2px rgb(60 64 67 / 15%);
+  box-shadow: inset 4px 4px 1px #dadce0, inset -4px -4px 1px #dadce0,
+    0 3px 3px 0 rgb(60 64 67 / 30%), 0 2px 3px 2px rgb(60 64 67 / 15%);
 }
