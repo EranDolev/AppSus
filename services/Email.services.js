@@ -28,6 +28,16 @@ function _createEmails() {
             removedAt: null,
             from: 'momo@momo.com',
             to: 'user@appsus.com'
+        },
+        {
+            id: 'e102',
+            subject: 'Still miss you!',
+            body: 'heyyyy',
+            isRead: false,
+            sentAt: 1551133930694,
+            removedAt: null,
+            from: 'momo@momo.com',
+            to: 'user@appsus.com'
         }]
         utilService.saveToStorage(EMAIL_KEY, emails)
     }

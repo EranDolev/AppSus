@@ -1,3 +1,29 @@
 .email-index {
     background-color: #c8854f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.email-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: #bf8080;
+}
+
+.email-list ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 10px;
+}
+
+.email-list li {
+    border-radius: 1em;
+    border: 2px solid grey;
+    padding: .825em;
 }

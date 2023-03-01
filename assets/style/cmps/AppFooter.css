@@ -1,0 +1,23 @@
+/** @format */
+
+
+.app-footer {
+    position: fixed;
+    top: 96%;
+    left: 0%;
+    width: 100%;
+    /* font-family: josefinSlabB; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    height: 4vh;
+    /* color: var(--lightorange); */
+    padding: 10px;
+    text-shadow: var(--darkblue) 0px -1px 1px;
+    /* background-color: var(--clr1bg); */
+    background-color: var(--lightblue);
+  }
+  .app-footer p {
+    margin: 0;
+  }
