@@ -54,21 +54,24 @@ export default {
         EmailService.get(emailId)
             .then(email => this.email = email)
     },
-    save() {
-        console.log('email:', this.email);
-        EmailService.save(this.email)
-            .then(savedEmail => {
-                eventBus.emit('show-msg', { txt: 'Email saved', type: 'success' })
-                this.email = savedEmail
-                console.log('savedEmail', savedEmail);
-                // this.$router.push('/email')
-                // this.email.unshift(newBook)
+    methods: {
+        save() {
+            console.log('email:', this.email);
+            EmailService.save(this.email)
+                .then(savedEmail => {
+                    eventBus.emit('show-msg', { txt: 'Email saved', type: 'success' })
+                    this.email = savedEmail
+                    console.log('savedEmail', savedEmail);
+                    // this.$router.push('/email')
+                    // this.email.unshift(newBook)
 
-            })
-            .catch(err => {
-                eventBus.emit('show-msg', { txt: 'Email send failed', type: 'error' })
-            })
+                })
+                .catch(err => {
+                    eventBus.emit('show-msg', { txt: 'Email send failed', type: 'error' })
+                })
+        },
     },
+
     components: {
         EmailService,
         eventBus,

@@ -42,10 +42,10 @@ const routerOptions = {
 		{
 			path: '/apps/email/email-compose/',
 			component: EmailCompose,
-		}
+		},
 		// {
-		// 	path: '/app/keep',
-		// 	component: Keep,
+		// 	path: '/apps/keep/note-add/',
+		// 	component: AddNote,
 		// },
 		// {
 		// 	path: '/app/missBook',
