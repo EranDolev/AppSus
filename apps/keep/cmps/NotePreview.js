@@ -7,22 +7,22 @@ export default {
     template: `
         <article @mouseover="showBtn=true"  @mouseleave="showBtn=false" class="note-card" :style="{ 'background-color': note.style.backgroundColor }">
         <nav class="nav-edit-note flex">
-            <button v-if="showBtn" class=" btn-edit btn-round btn-close" @click="remove(note.id)">x</button>
-            <label v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
+            <button v-if="showBtn" class=" btn-edit btn-close" @click="remove(note.id)"><i class="fa-regular fa-trash-can"></i></button>
+            <label class="btn-color btn-close" v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
                 <input  id="create-color" class="btn-edit" @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" style="display: none">
             </label>
-            <button v-if="showBtn" class="btn-edit btn-round" @click="duplicateNote(this.note)">duplicate</button>
+            <button v-if="showBtn" class="btn-edit btn-close" @click="duplicateNote(this.note)"><i class="fa-regular fa-copy"></i></button>
         </nav>
-        <br>
+        <!-- <br> -->
             <article class="note-txt" v-if="note.type === 'NoteTxt'">
-                <h3>{{ note.info.txt }}</h3>
+                <span>{{ note.info.txt }}</span>
             </article>
             <article class="note-img" v-if="note.type === 'NoteImg'">
-                <h3>{{ note.info.title }}</h3>
+                <span>{{ note.info.title }}</span>
                 <img :src="note.info.url" alt="url">
             </article>
             <article class="note-todos" v-if="note.type === 'NoteTodos'">
-                <h3>{{ note.info.title }}</h3>
+                <span>{{ note.info.title }}</span>
                 <ul>
                     <li :style="{ 'background-color': note.style.backgroundColor }" v-for="todo in note.info.todos" :key="note.info.todo"> 
                         <TodoPreview :todo="todo"/>

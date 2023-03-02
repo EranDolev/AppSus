@@ -1,4 +1,5 @@
 /* Setup */
+@import 'setup/mq.css';
 @import 'setup/vars.css';
 @import 'setup/typography.css';
 
