@@ -107,8 +107,11 @@ button {
 }
 
 .link-btn-add {
-  justify-self: end;
-  grid-row: 1;
+  position: absolute;
+  left: 50%;
+  top: 3%;
+  /* justify-self: end;
+  grid-row: 1; */
 }
 
 .btn-add {
