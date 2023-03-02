@@ -1,12 +1,14 @@
 import TodoPreview from './TodoPreview.js'
+import { NoteService } from '../../../services/note.service.js'
+import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
     props: ['note'],
     template: `
         <article @mouseover="showBtn=true"  @mouseleave="showBtn=false" class="note-card" :style="{ 'background-color': note.style.backgroundColor }">
         <article>
-            <button v-if="showBtn" class="btn-edit"><input v-model="this.note.style.backgroundColor" type="color"></button>
-            <button v-if="showBtn" class="btn-edit">bgc</button>
+            <button v-if="showBtn" class="btn-edit"><input @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color"></button>
+            <button v-if="showBtn" class="btn-edit" @click="duplicateNote(this.note)">duplicate</button>
         </article>
         <br>
             <article class="note-txt" v-if="note.type === 'NoteTxt'">
@@ -34,4 +36,25 @@ export default {
     components: {
             TodoPreview,
         },
+        methods: {
+            save(note){
+                NoteService.save(note)
+                .then(savedNote => {
+                    eventBus.emit('show-msg', { txt: 'Note saved', type: 'success' })
+                    note = savedNote
+                    this.$router.push('/apps/keep/')
+                })
+            },
+            updateNote(note) {
+                console.log(note)
+                this.save(note)
+            },
+            duplicateNote(note){
+                let newNote = NoteService.getNewNote()
+                newNote.info = note.info
+                newNote.type = note.type
+                newNote.style = note.style
+                this.save(newNote)
+            }
+        }
 }
