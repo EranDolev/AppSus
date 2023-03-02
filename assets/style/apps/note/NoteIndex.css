@@ -14,9 +14,10 @@
   display: grid;
   /* grid-auto-flow: dense; */
   /* grid-template-columns: 1fr 1fr; */
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 1em;
   gap: 0.825em;
+  column-gap: 4em;
 }
 
 /* .not-pinned {
