@@ -6,9 +6,11 @@
   --clr5: rgb(0, 0, 0);
 
 
-  --secondary-clr1: #6096B4;
-  --secondary-clr2: #93BFCF;
-  --secondary-clr3: #BDCDD6;
-  --secondary-clr4: #EEE9DA;
+  --secondary-clr4: #C6C6C6;
+  --secondary-clr3: #DADADA;
+  --secondary-clr2: #E2E2E2;
+  --secondary-clr1: #EEEEEE;
+  --secondary-clr0: #B23121;
+  --secondary-clr-1: #D44638;
 
 } 

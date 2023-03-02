@@ -49,6 +49,7 @@ button {
 }
 
 .btn-compose {
+  width: 3em;
   z-index: 3;
   /* background-color: var(--secondary-clr2); */
   background-color: #c2dbffd0;
@@ -69,7 +70,7 @@ button {
 .btn-compose:hover::after {
   content: " Compose";
   position: absolute;
-  right: 1em;
+  right: .5em;
 }
 
 .btn-send {

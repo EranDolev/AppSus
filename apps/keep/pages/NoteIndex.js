@@ -4,7 +4,7 @@ import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
     template: `
-    <h1>hello note world</h1>
+    <!-- <h1>hello note world</h1> -->
     <section class="keep-index">
     <NoteList :notes = "notes" @remove="removeNote"/>
     <!-- <pre> {{ user }} </pre> -->

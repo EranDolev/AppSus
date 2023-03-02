@@ -9,7 +9,7 @@ import HomeApps from './cmps/HomeApps.js'
 
 const options = {
     template: `
-        <section>
+        <section class="main-layout">
             <AppHeader />
             <RouterView />
             <!-- <HomeApps/> -->
