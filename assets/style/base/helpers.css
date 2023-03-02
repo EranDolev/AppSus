@@ -26,6 +26,10 @@
     color: solid var(--clr5);
 }
 
+.cross {
+    text-decoration: line-through;
+}
+
 /* list helpers */
 
 .clean-list {
