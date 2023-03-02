@@ -9,8 +9,12 @@ export default {
         <button @click="setNoteType('todo')">To Do List</button>
         <form class="form-compose" @submit.prevent="saveNote">
             <input v-if="selectedType === 'txt'" v-model="this.note.info.txt" id="text"  type="text">
+
             <input v-if="selectedType === 'todo'" v-model="this.note.info.title" id="text"  type="text">
             <input v-if="selectedType === 'todo'" v-model="string" id="text"  type="text">
+
+            <input v-if="selectedType === 'img'" v-model="this.note.info.title" id="text"  type="text" placeholder="Give Cool Title">
+            <input v-if="selectedType === 'img'" v-model="this.note.info.url" id="text"  type="text" placeholder="Enter Image URL">
         <button>save note</button>
         </form>
     `,
