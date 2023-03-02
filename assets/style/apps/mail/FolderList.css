@@ -5,8 +5,13 @@
   padding: 0;
 }
 
+.email-filter {
+    grid-column: 2;
+}
+
 .sec-folder-list {
-  /* position: absolute; */
+  position: absolute;
+  width: clamp(.01rem, 1.825rem, 2rem);
   top: auto;
   left: 0%;
 }

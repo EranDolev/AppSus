@@ -6,7 +6,7 @@ import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
     template: `
-    <h1 class="page-greet">hello world</h1>
+    <!-- <h1 class="page-greet">hello world</h1> -->
     <section class="email-index">
         <EmailFolderList/>
 
@@ -16,7 +16,7 @@ export default {
                 @remove="removeEmail" />
                  
     <!-- <EmailList :emails = "emails" @remove="removeEmail"/> -->
-    <pre> {{ user }} </pre>
+    <!-- <pre> {{ user }} </pre> -->
     </section>
     `,
     data() {

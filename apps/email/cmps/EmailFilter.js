@@ -5,20 +5,15 @@ export default {
                 v-model="filterBy.txt"
              
                 @input="filter" 
-                placeholder="Search"
+                placeholder="&#xF002;  Search mail" style="font-family:roboto, FontAwesome"
                 type="text" />
         </section>
     `,
     data() {
         return {
             filterBy: {
-<<<<<<< HEAD
                 txt: '',
             },
-=======
-                 from: '' ,
-                },
->>>>>>> e7d5170b7116f37da5055167415786aba1558ffc
         }
     },
     methods: {

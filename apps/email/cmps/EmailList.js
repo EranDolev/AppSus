@@ -5,9 +5,9 @@ import { eventBus } from "../../../services/event-bus.service.js"
 export default {
     props: ['emails'],
     template: `
-    <section class="email-list">
+    <section class="email-list ">
         <ul>
-            <li v-for="email in emails" :key="email.id"> 
+            <li class="clean-list" v-for="email in emails" :key="email.id"> 
              <button class="btn-round btn-close" @click="remove(email.id)">x</button> 
                 <RouterLink :to="'/apps/email/'+email.id"><EmailPreview :email="email"/></RouterLink>
             </li>
