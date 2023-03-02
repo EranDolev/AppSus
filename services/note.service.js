@@ -12,6 +12,7 @@ export const NoteService = {
     get,
     remove,
     save,
+    getNewNote
     // getEmpty,
 }
 
@@ -19,44 +20,44 @@ function _createNotes() {
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
         notes = [
-            { 
-                id: 'n101', 
-                createdAt: 1112222, 
-                type: 'NoteTxt', 
-                isPinned: true, 
-                style: { 
-                    backgroundColor: '#00d' 
-                }, 
-                info: { 
-                    txt: 'Fullstack Me Baby!' 
-                } 
-            }, 
-            { 
-                id: 'n102', 
-                type: 'NoteImg', 
-                isPinned: false, 
-                info: { 
-                    url: "/assets/img/my-img.jpg", 
-                    title: 'Bobi and Me' 
-                }, 
-                style: { 
-                    backgroundColor: '#00d' 
-                } 
-            }, 
-            { 
-                id: 'n103', 
-                type: 'NoteTodos', 
-                isPinned: false, 
-                info: { 
-                    title: 'Get my stuff together', 
+            {
+                id: 'n101',
+                createdAt: 1112222,
+                type: 'NoteTxt',
+                isPinned: true,
+                style: {
+                    backgroundColor: '#00d'
+                },
+                info: {
+                    txt: 'Fullstack Me Baby!'
+                }
+            },
+            {
+                id: 'n102',
+                type: 'NoteImg',
+                isPinned: false,
+                info: {
+                    url: "/assets/img/my-img.jpg",
+                    title: 'Bobi and Me'
+                },
+                style: {
+                    backgroundColor: '#00d'
+                }
+            },
+            {
+                id: 'n103',
+                type: 'NoteTodos',
+                isPinned: false,
+                info: {
+                    title: 'Get my stuff together',
                     todos: [
                         { txt: 'Driving license', doneAt: null },
                         { txt: 'Coding power', doneAt: 187111111 }
-                    ] 
+                    ]
                 },
-                style: { 
-                    backgroundColor: '#00d' 
-                } 
+                style: {
+                    backgroundColor: '#00d'
+                }
             }
         ]
         utilService.saveToStorage(NOTE_KEY, notes)
@@ -91,5 +92,18 @@ function save(note) {
         return storageService.put(NOTE_KEY, note)
     } else {
         return storageService.post(NOTE_KEY, note)
+    }
+}
+
+function getNewNote() {
+    return {
+        id: null,
+        createdAt: Date.now(),
+        type: '',
+        isPinned: false,
+        style: {
+            backgroundColor: '#00d'
+        },
+        info: {}
     }
 }

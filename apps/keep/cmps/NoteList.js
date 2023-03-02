@@ -5,14 +5,12 @@ export default {
     props: ['notes'],
     template: `
     <section class="note-list">
-        <!-- <ul class="note-card"> -->
-            <article v-for="note in notes" :key="note.id"> 
-            <button class="btn-round btn-close" @click="remove(note.id)">x</button>
-                <article class="notes-container"><NotePreview :note="note"/></article>
-                <!-- <RouterLink :to="'/apps/keep/'+note.id"><NotePreview :note="note"/></RouterLink> -->
-            
+            <article class="notes-sec" :class="getClass(note)" v-for="note in notes" :key="note.id"> 
+                    <article>
+                        <button class="btn-round btn-close" @click="remove(note.id)">x</button>  
+                        <NotePreview class="notes-container" :note="note"/>
+                    </article>   
             </article>
-        <!-- </ul> -->
 
         <RouterLink :to="'/apps/keep/note-add/'"><button class="btn-add">Add Note</button></RouterLink>
     </section>
@@ -21,9 +19,10 @@ export default {
         remove(noteId) {
             this.$emit('remove', noteId)
         },
-        // showDetails(emailId) {
-        //     this.$emit('show-details', emailId)
-        // },
+        getClass(note){
+            if (note.isPinned) {return 'pinned'}
+            else return 'not-pinned'
+        }
     },
 
     components: {
