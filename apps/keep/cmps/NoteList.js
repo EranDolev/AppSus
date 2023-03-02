@@ -8,7 +8,7 @@ export default {
             <article class="notes-sec" :class="getClass(note)" v-for="note in notes" :key="note.id"> 
                     <article class="note-article">
                         <!-- <button class="btn-round btn-close" @click="remove(note.id)">x</button>   -->
-                        <NotePreview  :note="note"/>
+                        <NotePreview  :note="note" @remove="remove" @save="save"/>
                     </article>   
             </article>
 
@@ -22,7 +22,10 @@ export default {
         getClass(note) {
             if (note.isPinned) { return 'pinned' }
             else return 'not-pinned'
-        }
+        },
+        save(note) {
+            this.$emit('save', note)
+        },
     },
 
     components: {

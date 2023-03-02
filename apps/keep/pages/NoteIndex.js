@@ -6,7 +6,7 @@ export default {
     template: `
     <!-- <h1>hello note world</h1> -->
     <section class="keep-index">
-    <NoteList :notes = "notes" @remove="removeNote"/>
+    <NoteList :notes = "notes" @remove="removeNote" @save="notesToShow"/>
     <!-- <pre> {{ user }} </pre> -->
     </section>
     `,
@@ -17,10 +17,7 @@ export default {
         }
     },
     created() {
-        NoteService.query()
-            .then(notes => {
-                this.notes = notes
-            })
+       this.notesToShow()
     },
     methods: {
         removeNote(noteId) {
@@ -33,6 +30,13 @@ export default {
                 .catch(err => {
                     eventBus.emit('show-msg', { txt: 'note remove failed', type: 'error' })
                 })
+        },
+
+        notesToShow(){
+            NoteService.query()
+            .then(notes => {
+                this.notes = notes
+            })
         },
     },
     components: {
