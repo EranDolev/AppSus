@@ -1,7 +1,7 @@
 /** @format */
 
 .keep-index {
-  background-color: #5aaccc;
+  background-color: var(--secondary-clr2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,11 +12,16 @@
 .note-list {
   width: 100%;
   display: grid;
+  /* grid-auto-flow: dense; */
   /* grid-template-columns: 1fr 1fr; */
   justify-content: space-between;
   padding: 1em;
   gap: 0.825em;
 }
+
+/* .not-pinned {
+  grid-column:-1 ;
+} */
 
 .note-list .notes-sec {
   display: grid;
@@ -39,7 +44,7 @@
 .note-list li {
   max-width: 2050px;
   border-radius: 1em;
-  border: 2px solid grey;
+  border: 1px solid grey;
   padding: 0.825em;
   background: #d5aa73;
 }

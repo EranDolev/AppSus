@@ -5,5 +5,5 @@
 .note-card{
     height: clamp(1rem, 20.3rem, 25rem);
     width: clamp(1rem, 23.125rem, 25rem);
-    border-radius: 1em;
+    border-radius: .01em;
 }
