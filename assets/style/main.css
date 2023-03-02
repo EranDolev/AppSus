@@ -15,6 +15,7 @@
 @import 'cmps/UserMsg.css';
 @import 'cmps/buttons.css';
 @import 'cmps/logo.css';
+@import 'cmps/NotePreview.css';
 
 /* Apps */
 @import 'apps/mail/EmailIndex.css';
