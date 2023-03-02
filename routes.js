@@ -5,6 +5,7 @@ import EmailDetails from './apps/email/pages/EmailDetails.js'
 
 import Note from './apps/keep/pages/NoteIndex.js'
 import NoteDetails from './apps/keep/pages/NoteDetails.js'
+import AddNote from './apps/keep/cmps/AddNote.js'
 
 import EmailCompose from './apps/email/cmps/EmailCompose.js'
 // import Keep from './apps/keep/pages/NoteIndex.js'
@@ -38,6 +39,10 @@ const routerOptions = {
 		{
 			path: '/apps/keep/:noteId',
 			component: NoteDetails,
+		},
+		{
+			path: '/apps/keep/note-add',
+			component: AddNote,
 		},
 		{
 			path: '/apps/email/email-compose/',

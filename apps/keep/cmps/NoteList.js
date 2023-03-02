@@ -12,7 +12,7 @@ export default {
             </li>
         </ul>
 
-        <RouterLink :to="'/apps/keep/note-add/'" @save="onSaveNote"><button class="btn-add">Add Note</button></RouterLink>
+        <RouterLink :to="'/apps/keep/note-add/'"><button class="btn-add">Add Note</button></RouterLink>
     </section>
     `,
     methods: {

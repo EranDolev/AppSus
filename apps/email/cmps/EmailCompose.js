@@ -15,7 +15,7 @@ export default {
                     to:
                 </label>
                     <input id="to" name="to" v-model="this.email.to"
-                    type="text"
+                    type="email"
                     placeholder="some@email.com">
              
                 <label for="subject" class="subject">
