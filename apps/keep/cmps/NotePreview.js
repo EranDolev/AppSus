@@ -5,7 +5,7 @@ export default {
     template: `
         <article @mouseover="showBtn=true"  @mouseleave="showBtn=false" class="note-card" :style="{ 'background-color': note.style.backgroundColor }">
         <article>
-            <button v-if="showBtn" class="btn-edit">bgc</button>
+            <button v-if="showBtn" class="btn-edit"><input v-model="this.note.style.backgroundColor" type="color"></button>
             <button v-if="showBtn" class="btn-edit">bgc</button>
         </article>
         <br>
@@ -33,5 +33,5 @@ export default {
     },
     components: {
             TodoPreview,
-        }
+        },
 }
