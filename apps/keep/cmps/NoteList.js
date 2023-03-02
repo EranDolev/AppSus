@@ -6,8 +6,8 @@ export default {
     template: `
     <section class="note-list">
             <article class="notes-sec" :class="getClass(note)" v-for="note in notes" :key="note.id"> 
-                    <article>
-                        <button class="btn-round btn-close" @click="remove(note.id)">x</button>  
+                    <article class="note-article">
+                        <!-- <button class="btn-round btn-close" @click="remove(note.id)">x</button>   -->
                         <NotePreview class="notes-container" :note="note"/>
                     </article>   
             </article>

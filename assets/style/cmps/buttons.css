@@ -17,6 +17,7 @@ button {
 
 .btn-edit{
   grid-row: 1 / span 2;
+
 }
 
 .email-list .btn-close {
@@ -81,3 +82,9 @@ button {
   top: 10%;
   left: 96%;
 }
+
+/* .note-article .btn-close {
+position: absolute;
+top: 1%;
+left: 1%;
+} */
