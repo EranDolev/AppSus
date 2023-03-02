@@ -1,53 +1,52 @@
-.keep-index {
-    background-color: #5aaccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 1em;
+/** @format */
 
+.keep-index {
+  background-color: #5aaccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 1em;
 }
 
 .note-list {
-    width: 100%;
-    display: grid;
-    justify-content: space-between;
-    padding: 1em;
-    gap: 0.825em;
+  width: 100%;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  justify-content: space-between;
+  padding: 1em;
+  gap: 0.825em;
 }
 
-.note-list .pinned {
-    grid-row: 1;
+.note-list .notes-sec {
+  display: grid;
 }
 
-.note-list :not(.pinned) {
-    grid-row: 2;
-}
+
 
 .note-list .note-card {
-    margin: 0;
-    position: relative;
-    display: block;
-    display: grid;
-    max-width: 65%;
-    /* width: 100%;  */
-    grid-template-columns: 1fr;
-    justify-content: space-between;
-    gap: 1em;
-    padding: 10px;
+  margin: 0;
+  position: relative;
+  width: clamp(100px, 300px, 500px);
+  display: grid;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 10px;
+  filter: drop-shadow(3px -2px 0px var(--secondary-clr1));
+  box-shadow: inset 0 -5px 0 0 rgb(100 121 143 / 25%);
 }
 
 .note-list li {
-    max-width: 2050px ;
-    border-radius: 1em;
-    border: 2px solid grey;
-    padding: .825em;
-    background: #d5aa73;
+  max-width: 2050px;
+  border-radius: 1em;
+  border: 2px solid grey;
+  padding: 0.825em;
+  background: #d5aa73;
 }
 
 .note-article {
-    position: relative;
-    /* display: grid; */
+  position: relative;
+  /* display: grid; */
 }
 
 /* .notes-container {
@@ -56,19 +55,21 @@
     grid-template-rows: auto;
 } */
 .notes-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1em;
-    padding: 10px;
-    border-radius: 1em;
-    border: 2px solid grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 10px;
+  border-radius: 1em;
+  border: 2px solid grey;
 }
 
 .nav-edit-note {
-    flex-flow: column;
+  position: absolute;
+  top: 85%;
+  flex-flow: row;
 }
 
-.note-img img{
-    max-height: 200px;
+.note-img img {
+  max-height: 200px;
 }

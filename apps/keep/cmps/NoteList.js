@@ -12,15 +12,15 @@ export default {
                     </article>   
             </article>
 
-        <RouterLink :to="'/apps/keep/note-add/'"><button class="btn-add">Add Note</button></RouterLink>
+        <RouterLink class="link-btn-add" :to="'/apps/keep/note-add/'"><button class="btn-add">Add Note</button></RouterLink>
     </section>
     `,
     methods: {
         remove(noteId) {
             this.$emit('remove', noteId)
         },
-        getClass(note){
-            if (note.isPinned) {return 'pinned'}
+        getClass(note) {
+            if (note.isPinned) { return 'pinned' }
             else return 'not-pinned'
         }
     },

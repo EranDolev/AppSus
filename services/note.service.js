@@ -26,7 +26,7 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#f1c40f'
                 },
                 info: {
                     txt: 'Fullstack Me Baby!'
@@ -41,7 +41,7 @@ function _createNotes() {
                     title: 'Bobi and Me'
                 },
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#f1c40f'
                 }
             },
             {
@@ -56,7 +56,7 @@ function _createNotes() {
                     ]
                 },
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#f1c40f'
                 }
             }
         ]
