@@ -7,14 +7,8 @@ export default {
     template: `
     <section class="email-list ">
         <ul>
-<<<<<<< HEAD
             <li class="clean-list" v-for="email in emails" :key="email.id"> 
                     <EmailPreview :email="email" @remove="remove"/>
-=======
-            <li class="clean-list"  v-for="email in emails" :key="email.id"> 
-             <button class="btn-round btn-close" @click="remove(email.id)">x</button> 
-                <RouterLink :to="'/apps/email/'+email.id"><EmailPreview :email="email"/></RouterLink>
->>>>>>> 5651eb7d8cbc16d8242dcf6906950d25296de330
             </li>
         </ul>
        
