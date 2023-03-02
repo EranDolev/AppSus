@@ -7,11 +7,12 @@ export default {
     template: `
         <article @mouseover="showBtn=true"  @mouseleave="showBtn=false" class="note-card" :style="{ 'background-color': note.style.backgroundColor }">
         <nav class="nav-edit-note flex">
-            <button v-if="showBtn" class=" btn-edit btn-round btn-close" @click="remove(note.id)">x</button>
+            <button v-if="showBtn" class=" btn-edit btn-round btn-close" @click="remove(this.note.id)">x</button>
             <label v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
                 <input  id="create-color" class="btn-edit" @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" style="display: none">
             </label>
             <button v-if="showBtn" class="btn-edit btn-round" @click="duplicateNote(this.note)">duplicate</button>
+            <button v-if="showBtn" class="btn-edit btn-round" @click="pinNote(this.note)">Pin</button>
         </nav>
         <br>
             <article class="note-txt" v-if="note.type === 'NoteTxt'">
@@ -53,6 +54,10 @@ export default {
         },
         updateNote(note) {
             console.log(note)
+            this.save(note)
+        },
+        pinNote(note) {
+            note.isPinned = !note.isPinned
             this.save(note)
         },
         duplicateNote(note) {

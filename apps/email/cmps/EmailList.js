@@ -8,8 +8,7 @@ export default {
     <section class="email-list ">
         <ul>
             <li class="clean-list" v-for="email in emails" :key="email.id"> 
-             <button class="btn-round btn-close" @click="remove(email.id)">x</button> 
-                <RouterLink :to="'/apps/email/'+email.id"><EmailPreview :email="email"/></RouterLink>
+                    <EmailPreview :email="email" @remove="remove"/>
             </li>
         </ul>
        
