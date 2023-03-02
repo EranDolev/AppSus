@@ -58,7 +58,19 @@ function _createNotes() {
                 style: {
                     backgroundColor: '#f1c40f'
                 }
-            }
+            },
+            {
+                id: 'n104',
+                type: 'NoteVid',
+                isPinned: false,
+                info: {
+                    url: "/assets/vid/video.mp4",
+                    title: 'Erath Video'
+                },
+                style: {
+                    backgroundColor: '#f1c40f'
+                }
+            },
         ]
         utilService.saveToStorage(NOTE_KEY, notes)
     }
