@@ -7,3 +7,7 @@
     width: clamp(1rem, 23.125rem, 25rem);
     border-radius: .01em;
 }
+
+.todo:hover {
+    cursor: pointer;
+}
