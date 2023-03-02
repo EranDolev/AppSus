@@ -2,17 +2,23 @@ export default {
     template: `
         <section class="email-filter">
             <input 
-                v-model="filterBy.from"
+                v-model="filterBy.txt"
+             
                 @input="filter" 
-                placeholder="Search From"
+                placeholder="Search"
                 type="text" />
         </section>
     `,
     data() {
         return {
             filterBy: {
+<<<<<<< HEAD
+                txt: '',
+            },
+=======
                  from: '' ,
                 },
+>>>>>>> e7d5170b7116f37da5055167415786aba1558ffc
         }
     },
     methods: {
@@ -23,7 +29,7 @@ export default {
     watch: {
         filterBy: {
             handler() {
-                // console.log('filterBy changed', this.filterBy)
+                console.log('filterBy changed', this.filterBy)
                 this.$emit('filter', this.filterBy)
             },
             deep: true

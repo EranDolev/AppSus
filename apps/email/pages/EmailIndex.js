@@ -1,12 +1,15 @@
 import { EmailService } from '../../../services/Email.services.js'
 import EmailList from '../cmps/EmailList.js'
 import EmailFilter from '../cmps/EmailFilter.js'
+import EmailFolderList from '../cmps/EmailFolderList.js'
 import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
     template: `
     <h1 class="page-greet">hello world</h1>
     <section class="email-index">
+        <EmailFolderList/>
+
         <EmailFilter @filter="setFilterBy"/>
             <EmailList
                 :emails="filteredEmails"
@@ -49,13 +52,14 @@ export default {
     },
     computed: {
         filteredEmails() {
-            const regex = new RegExp(this.filterBy.from, 'i')
-            return this.emails.filter(email => regex.test(email.from))
+            const regex = new RegExp((this.filterBy.txt), 'i')
+            return this.emails.filter(email => regex.test(email.subject) || regex.test(email.from))
         },
     },
     components: {
         EmailList,
         EmailFilter,
+        EmailFolderList,
     }
 
 

@@ -12,7 +12,7 @@ export default {
                 <RouterLink :to="'/apps/email/'+email.id"><EmailPreview :email="email"/></RouterLink>
             </li>
         </ul>
-        <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose"><i class="fa-solid fa-pencil"></i> Compose</button></RouterLink>
+       
     </section>
 
     `,

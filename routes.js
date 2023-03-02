@@ -2,6 +2,7 @@ import HomePage from './views/HomePage.js'
 import AboutUs from './views/AboutUs.js'
 import Email from './apps/email/pages/EmailIndex.js'
 import EmailDetails from './apps/email/pages/EmailDetails.js'
+import EmailFolderList from './apps/email/cmps/EmailFolderList.js'
 
 import Note from './apps/keep/pages/NoteIndex.js'
 import NoteDetails from './apps/keep/pages/NoteDetails.js'
@@ -47,6 +48,10 @@ const routerOptions = {
 		{
 			path: '/apps/email/email-compose/',
 			component: EmailCompose,
+		},
+		{
+			path: '/apps/email/email-folder-list/',
+			component: EmailFolderList,
 		},
 		// {
 		// 	path: '/apps/keep/note-add/',

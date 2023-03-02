@@ -33,12 +33,19 @@ button {
   border-radius: 0.5em;
   color: var(--clr4);
   border: none;
-  transition: padding 0.4;
+  transition: 0.4s;
 }
 
 .btn-compose:hover {
   box-shadow: inset 2px 2px 0 #dadce0, inset -2px -2px 0 #dadce0,
     0 2px 2px 0 rgb(60 64 67 / 30%), 0 2px 3px 2px rgb(60 64 67 / 15%);
+    padding-inline-end: 6.5em;
+}
+
+.btn-compose:hover::after {
+  content: " Compose";
+  position: absolute;
+  right: 7em;
 }
 
 .btn-send {

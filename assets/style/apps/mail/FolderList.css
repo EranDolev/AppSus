@@ -1,0 +1,12 @@
+/** @format */
+
+.folder-list-card {
+  margin: 0;
+  padding: 0;
+}
+
+.sec-folder-list {
+  /* position: absolute; */
+  top: auto;
+  left: 0%;
+}
