@@ -38,7 +38,18 @@ function _createEmails() {
             removedAt: null,
             from: 'momo@momo.com',
             to: 'user@appsus.com'
-        }]
+        },
+        {
+            id: 'e103',
+            subject: 'write him back!',
+            body: 'momo is looking for you',
+            isRead: false,
+            sentAt: 1551133932694,
+            removedAt: null,
+            from: 'puki@puki.com',
+            to: 'user@appsus.com'
+        }
+        ]
         utilService.saveToStorage(EMAIL_KEY, emails)
     }
 }
@@ -53,16 +64,16 @@ function createUser() {
 
 function query(filterBy = {}) {
     return storageService.query(EMAIL_KEY)
-    // .then(emails => {
-    //     if (filterBy.txt) {
-    //         const regex = new RegExp(filterBy.txt, 'i')
-    //         emails = emails.filter(email => regex.test(email.from))
-    //     }
-    //     if (filterBy.minPrice) {
-    //         emails = emails.filter(email => email.listPrice.amount >= filterBy.minPrice)
-    //     }
-    //     return emails
-    // })
+    .then(emails => {
+        if (filterBy.txt) {
+            const regex = new RegExp(filterBy.txt, 'i')
+            emails = emails.filter(email => regex.test(email.from))
+        }
+        // if (filterBy.sendAt) {
+        //     emails = emails.filter(email => email.sendAt >= filterBy.sendAt)
+        // }
+        return emails
+    })
 }
 
 function get(emailId) {
@@ -81,3 +92,7 @@ function save(email) {
         return storageService.post(EMAIL_KEY, email)
     }
 }
+
+// function getEmptyEmail(from = '') {
+//     return { id: '', from }
+// }

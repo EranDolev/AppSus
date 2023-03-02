@@ -5,14 +5,14 @@ import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
     template: `
-    <h1>hello world</h1>
+    <h1 class="page-greet">hello world</h1>
     <section class="email-index">
-        <!-- <EmailFilter @filter="setFilterBy"/>
+        <EmailFilter @filter="setFilterBy"/>
             <EmailList
-                :emails="filteredBooks"
-                 /> -->
+                :emails="filteredEmails"
+                @remove="removeEmail" />
                  
-    <EmailList :emails = "emails" @remove="removeEmail"/>
+    <!-- <EmailList :emails = "emails" @remove="removeEmail"/> -->
     <pre> {{ user }} </pre>
     </section>
     `,
@@ -29,7 +29,7 @@ export default {
                 this.emails = emails
             })
         this.user = EmailService.createUser()
-        console.log('EmailService.createUser(): ', EmailService.createUser());
+        // console.log('EmailService.createUser(): ', EmailService.createUser());
     },
     methods: {
         removeEmail(emailId) {
@@ -42,6 +42,15 @@ export default {
                 .catch(err => {
                     eventBus.emit('show-msg', { txt: 'email remove failed', type: 'error' })
                 })
+        },
+        setFilterBy(filterBy) {
+            this.filterBy = filterBy
+        },
+    },
+    computed: {
+        filteredEmails() {
+            const regex = new RegExp(this.filterBy.from, 'i')
+            return this.emails.filter(email => regex.test(email.from))
         },
     },
     components: {

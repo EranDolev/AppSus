@@ -4,7 +4,7 @@ export default {
             <input 
                 v-model="filterBy.from"
                 @input="filter" 
-                placeholder="Search"
+                placeholder="Search From"
                 type="text" />
         </section>
     `,
@@ -17,5 +17,14 @@ export default {
         filter() {
             this.$emit('filter', this.filterBy)
         }
-    }
+    },
+    watch: {
+        filterBy: {
+            handler() {
+                // console.log('filterBy changed', this.filterBy)
+                this.$emit('filter', this.filterBy)
+            },
+            deep: true
+        },
+    },
 }
