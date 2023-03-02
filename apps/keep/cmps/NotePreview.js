@@ -8,8 +8,8 @@ export default {
         <article @mouseover="showBtn=true"  @mouseleave="showBtn=false" class="note-card" :style="{ 'background-color': note.style.backgroundColor }">
         <nav class="nav-edit-note flex">
             <button v-if="showBtn" class=" btn-edit btn-round btn-close" @click="remove(note.id)">x</button>
-            <label for="create-color">
-                <button v-if="showBtn" id="create-color" class="btn-edit btn-round"><input @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" ><i class="fa-solid fa-eye-dropper"></i></button>
+            <label v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
+                <input  id="create-color" class="btn-edit" @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" style="display: none">
             </label>
             <button v-if="showBtn" class="btn-edit btn-round" @click="duplicateNote(this.note)">duplicate</button>
         </nav>
