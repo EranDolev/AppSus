@@ -69,8 +69,9 @@ function query(filterBy = {}) {
             const regex = new RegExp(filterBy.txt, 'i')
             emails = emails.filter(email => regex.test(email.from))
         }
-        // if (filterBy.sendAt) {
-        //     emails = emails.filter(email => email.sendAt >= filterBy.sendAt)
+        // if (filterBy.txt) {
+        //     const regex = new RegExp(filterBy.txt, 'i')
+        //     emails = emails.filter(email => regex.test(email.subject))
         // }
         return emails
     })
