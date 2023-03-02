@@ -10,7 +10,9 @@ export default {
     `,
     data() {
         return {
-            filterBy: { from: '' },
+            filterBy: {
+                 from: '' ,
+                },
         }
     },
     methods: {

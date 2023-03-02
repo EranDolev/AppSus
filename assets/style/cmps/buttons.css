@@ -15,6 +15,10 @@ button {
   opacity: 0.8;
 }
 
+.btn-edit{
+  grid-row: 1 / span 2;
+}
+
 .email-list .btn-close {
   min-width: 2px;
   min-height: 2px;

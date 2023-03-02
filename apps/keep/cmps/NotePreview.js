@@ -3,7 +3,12 @@ import TodoPreview from './TodoPreview.js'
 export default {
     props: ['note'],
     template: `
+        <article @mouseover="showBtn=true"  @mouseleave="showBtn=false" class="note-card" :style="{ 'background-color': note.style.backgroundColor }">
         <article>
+            <button v-if="showBtn" class="btn-edit">bgc</button>
+            <button v-if="showBtn" class="btn-edit">bgc</button>
+        </article>
+        <br>
             <article class="note-txt" v-if="note.type === 'NoteTxt'">
                 <h3>{{ note.info.txt }}</h3>
             </article>
@@ -14,14 +19,19 @@ export default {
             <article class="note-todos" v-if="note.type === 'NoteTodos'">
                 <h3>{{ note.info.title }}</h3>
                 <ul>
-                    <li v-for="todo in note.info.todos" :key="note.info.todo"> 
+                    <li :style="{ 'background-color': note.style.backgroundColor }" v-for="todo in note.info.todos" :key="note.info.todo"> 
                         <TodoPreview :todo="todo"/>
                     </li>
                 </ul>
             </article>
         </article>
     `,
-        components: {
+    data() {
+        return {
+            showBtn: false
+        }
+    },
+    components: {
             TodoPreview,
         }
 }

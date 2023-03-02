@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 1em;
 
 }
 
@@ -12,6 +13,7 @@
     display: flex;
     justify-content: space-between;
     padding: 1em;
+    gap: 0.825em;
 }
 
 .note-list .note-card {
