@@ -1,8 +1,4 @@
 /** @format */
-button {
-  /* transition: 0.4s; */
-  position: relative;
-}
 
 .btn-round {
   color: grey;
@@ -11,9 +7,9 @@ button {
   opacity: 1;
 }
 
-.btn-close:hover {
+/* .btn-close:hover {
   opacity: 0.8;
-}
+} */
 
 .btn-edit {
   color: var(--secondary-clr1);
@@ -28,10 +24,6 @@ button {
   filter: drop-shadow(0.5px -0.5px 0px var(--secondary-clr4));
 }
 
-
-
-
-
 .btn-color {
   font-size: 1.5em;
   color: var(--secondary-clr1);
@@ -39,6 +31,76 @@ button {
   top: 18%;
   left: 110%;
   filter: drop-shadow(0.5px -0.5px 0px var(--secondary-clr4));
+}
+
+.nav-color-picker {
+  border-radius: 2em;
+  padding: 0.2em;
+  position: absolute;
+  height: 100px;
+  top: -205%;
+  rotate: 90deg;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #fff;
+  opacity: 1;
+}
+
+.btn-color-red {
+  border: 0;
+  justify-self: center;
+  /* font-size: 1em; */
+  min-width: 1px;
+  min-height: 1px;
+  height: 1em;
+  width: 1em;
+  /* height: 0.1em;
+  width: 0.1em; */
+  border-radius: 3em;
+  background-color: #f28b82;
+}
+
+.btn-color-yellow {
+  border: 0;
+  justify-self: center;
+  /* font-size: 1em; */
+  min-width: 1px;
+  min-height: 1px;
+  height: 1em;
+  width: 1em;
+  /* height: 0.1em;
+  width: 0.1em; */
+  border-radius: 3em;
+  background-color: #fff475;
+}
+
+.btn-color-blue {
+  border: 0;
+  justify-self: center;
+  /* font-size: 1em; */
+  min-width: 1px;
+  min-height: 1px;
+  height: 1em;
+  width: 1em;
+  /* height: 0.1em;
+  width: 0.1em; */
+  border-radius: 3em;
+  background-color: #cbf0f8;
+}
+
+.btn-color-green {
+  border: 0;
+  justify-self: center;
+  /* font-size: 1em; */
+  min-width: 1px;
+  min-height: 1px;
+  height: 1em;
+  width: 1em;
+  /* height: 0.1em;
+  width: 0.1em; */
+  border-radius: 3em;
+  background-color: #ccff90;
 }
 
 .email-list .btn-close {
@@ -70,7 +132,7 @@ button {
 .btn-compose:hover::after {
   content: " Compose";
   position: absolute;
-  right: .5em;
+  right: 0.5em;
 }
 
 .btn-send {
@@ -118,13 +180,13 @@ button {
   border-radius: 2em;
   border: 0;
   color: var(--clr4);
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .btn-add:hover {
   box-shadow: inset 2px 2px 0 var(--secondary-clr2),
-  inset -2px -2px 0 var(--secondary-clr2), 0 2px 2px 0 rgb(60 64 67 / 30%),
-  0 2px 3px 2px rgb(60 64 67 / 15%);
+    inset -2px -2px 0 var(--secondary-clr2), 0 2px 2px 0 rgb(60 64 67 / 30%),
+    0 2px 3px 2px rgb(60 64 67 / 15%);
 }
 
 /* .note-article .btn-close {

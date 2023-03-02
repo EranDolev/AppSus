@@ -9,8 +9,14 @@ export default {
             <nav class="nav-edit-note flex">
                 <button v-if="showBtn" class=" btn-edit btn-close" @click="remove(this.note.id)"><i class="fa-regular fa-trash-can"></i></button>
                 <label class="btn-color btn-close" v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
-                    <input  id="create-color" class="btn-edit" @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" style="display: none">
+                <nav id="create-color" class="nav-color-picker">
+                    <button class="btn-color-blue"></button>
+                    <button class="btn-color-green"></button>
+                    <button class="btn-color-red"></button>
+                    <button class="btn-color-yellow"></button>
+                     </nav>
                 </label>
+                    <!-- <input  id="create-color" class="btn-edit" @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" style="display: none"> -->
                 <button v-if="showBtn" class="btn-edit btn-round" @click="duplicateNote(this.note)"><i class="fa-regular fa-copy"></i></button>
                 <button v-if="showBtn" class="btn-edit btn-round" @click="pinNote(this.note)">Pin</button>
             </nav>

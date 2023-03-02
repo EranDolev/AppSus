@@ -7,6 +7,7 @@ export default {
     <section class="note-list">
             <article class="notes-sec" :class="getClass(note)" v-for="note in notes" :key="note.id"> 
                     <article class="note-article">
+                        
                         <!-- <button class="btn-round btn-close" @click="remove(note.id)">x</button>   -->
                         <NotePreview  :note="note" @remove="remove" @save="save"/>
                     </article>   

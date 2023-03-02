@@ -3,7 +3,7 @@
 @media (max-width: 700px) {
   .note-list {
     display: grid;
-    /* grid-template-columns: repeat(1, 1fr); */
+    grid-template-columns: 1fr;
     /* grid-template-columns: repeat(auto-fit,minmax (300px, 1fr)); */
     /* grid-template-rows: repeat(3, 1fr); */
   }
@@ -11,6 +11,11 @@
   .pinned {
     grid-row: 1;
   }
+  /* .pinned:nth-last-of-type(1) {
+    grid-row: 2;
+  } */
+  
+  
   
 }
 @media (min-width: 700px) {
