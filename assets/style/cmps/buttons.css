@@ -24,82 +24,68 @@
   filter: drop-shadow(0.5px -0.5px 0px var(--secondary-clr4));
 }
 
+.btn-edit:hover {
+  color: var(--secondary-clr2);
+}
+
 .btn-color {
-  font-size: 1.5em;
+  border: 0;
+  justify-self: center;
+  min-width: 4px;
+  min-height: 4px;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 3em;
+  filter: drop-shadow(1px -1px 0px var(--secondary-clr4));
+  /* font-size: 1.5em;
   color: var(--secondary-clr1);
   position: absolute;
   top: 18%;
   left: 110%;
-  filter: drop-shadow(0.5px -0.5px 0px var(--secondary-clr4));
+  filter: drop-shadow(0.5px -0.5px 0px var(--secondary-clr4)); */
 }
 
 .nav-color-picker {
+  z-index: 3;
   border-radius: 2em;
-  padding: 0.2em;
+  padding: 0.4em;
   position: absolute;
-  height: 100px;
-  top: -205%;
+  width: 1.5rem;
+  left: 65%;
+  height: 11rem;
+  top: -190%;
   rotate: 90deg;
   display: flex;
   justify-content: space-between;
+  justify-items: center;
+  align-items: center;
   flex-direction: column;
   background-color: #fff;
   opacity: 1;
+  filter: drop-shadow(1px -1px 1px var(--secondary-clr4));
 }
 
-.btn-color-red {
-  border: 0;
-  justify-self: center;
-  /* font-size: 1em; */
-  min-width: 1px;
-  min-height: 1px;
-  height: 1em;
-  width: 1em;
-  /* height: 0.1em;
-  width: 0.1em; */
-  border-radius: 3em;
+.btn-red {
   background-color: #f28b82;
 }
 
-.btn-color-yellow {
-  border: 0;
-  justify-self: center;
-  /* font-size: 1em; */
-  min-width: 1px;
-  min-height: 1px;
-  height: 1em;
-  width: 1em;
-  /* height: 0.1em;
-  width: 0.1em; */
-  border-radius: 3em;
+.btn-yellow {
   background-color: #fff475;
 }
 
-.btn-color-blue {
-  border: 0;
-  justify-self: center;
-  /* font-size: 1em; */
-  min-width: 1px;
-  min-height: 1px;
-  height: 1em;
-  width: 1em;
-  /* height: 0.1em;
-  width: 0.1em; */
-  border-radius: 3em;
+.btn-blue {
   background-color: #cbf0f8;
 }
-
-.btn-color-green {
-  border: 0;
-  justify-self: center;
-  /* font-size: 1em; */
-  min-width: 1px;
-  min-height: 1px;
-  height: 1em;
-  width: 1em;
-  /* height: 0.1em;
-  width: 0.1em; */
-  border-radius: 3em;
+.btn-darkblue {
+  background-color: #aecbfa;
+}
+.btn-pink {
+  background-color: #fdcfe8;
+}
+.btn-purple {
+  background-color: #d7aefb;
+}
+.btn-green {
   background-color: #ccff90;
 }
 
