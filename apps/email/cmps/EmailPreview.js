@@ -2,7 +2,7 @@ export default {
     props: ['email'],
     template: `
         <article  @mouseover="showBtn=true"  @mouseleave="showBtn=false">
-        <RouterLink class="email-card" :to="'/apps/email/'+email.id">
+        <RouterLink :class="getClass(email)" class="email-card" :to="'/apps/email/'+email.id">
             <span>From: {{ email.from }}</span>
             <span>{{ email.subject }}</span>
         </RouterLink>
@@ -11,16 +11,16 @@ export default {
             <!-- <h2>{{ email.body }}</h3> -->
         </article>
     `,
-            data() {
-                return {
-                    showBtn: false
-                }
-            },
-            methods: {
-                remove(emailId) {
-                    this.$emit('remove', emailId)
-                },
-            },
+    data() {
+        return {
+            showBtn: false
+        }
+    },
+    methods: {
+        remove(emailId) {
+            this.$emit('remove', emailId)
+        },
+    },
     methods: {
         getClass(email) {
             if (email.isRead) { return 'read' }

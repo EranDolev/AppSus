@@ -16,7 +16,7 @@
 
 .sec-folder-list {
   position: absolute;
-  background-color: var(--secondary-clr-1);
+  /* background-color: var(--secondary-clr-1); */
   align-self: start;
   margin: 0;
   grid-column: 1;
