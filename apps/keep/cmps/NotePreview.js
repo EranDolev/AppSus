@@ -7,8 +7,8 @@ export default {
     template: `
         <article @mouseover="showBtn=true"  @mouseleave="showBtn=false" class="note-card" :style="{ 'background-color': note.style.backgroundColor }">
             <nav class="nav-edit-note flex">
-                <button v-if="showBtn" class=" btn-edit btn-close" @click="remove(this.note.id)"><i class="fa-regular fa-trash-can"></i></button>
-                <button @mouseover="showClr=true"  @mouseleave="showClr=false" class="btn-edit btn-close" v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
+                <button title="delete" v-if="showBtn" class=" btn-edit btn-close" @click="remove(this.note.id)"><i class="fa-regular fa-trash-can"></i></button>
+                <button title="Background Color" @mouseover="showClr=true"  @mouseleave="showClr=false" class="btn-edit btn-close" v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
                     <nav v-if="showClr" id="create-color" class="nav-color-picker">
                    <!-- COLOR BTNS -->
                         <button class="btn-color btn-pink" @click="changeClr(this.note,'#fdcfe8')"></button>
@@ -21,9 +21,9 @@ export default {
                     </nav>
                 </button>
                     <!-- <input  id="create-color" class="btn-edit" @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" style="display: none"> -->
-                <button v-if="showBtn" class="btn-edit btn-round" @click="duplicateNote(this.note)"><i class="fa-regular fa-copy"></i></button>
-                <button v-if="showBtn" class="btn-edit btn-round" @click="pinNote(this.note)"><i class="fa-solid fa-map-pin"></i></button>
-                <button v-if="showBtn" class="btn-edit btn-round" @click="editNote(this.note)">E</button>
+                <button title="Duplicate Note" v-if="showBtn" class="btn-edit btn-round" @click="duplicateNote(this.note)"><i class="fa-regular fa-copy"></i></button>
+                <button title="Pin Note" v-if="showBtn" class="btn-edit btn-round" @click="pinNote(this.note)"><i class="fa-solid fa-map-pin"></i></button>
+                <button title="Edit Note" v-if="showBtn" class="btn-edit btn-round" @click="editNote(this.note)">E</button>
             </nav>
 
             <article class="note-txt" v-if="note.type === 'NoteTxt'">
@@ -117,6 +117,5 @@ export default {
             note.edit = true
             console.log(note)
         }
-
     }
 }

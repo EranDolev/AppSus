@@ -4,7 +4,7 @@ import AddNote from "./AddNote.js"
 export default {
     props: ['notes'],
     template: `
-        <AddNote/>
+        <AddNote @save="save"/>
     <section class="note-list">
             <article class="notes-sec" :class="getClass(note)" v-for="note in notes" :key="note.id"> 
                     <article class="note-article">
