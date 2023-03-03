@@ -7,6 +7,7 @@ export default {
             <span class="mail-logo"></span>
             <span class="keep-logo"></span>
         </nav>
+        
     </section>
 `,
 }

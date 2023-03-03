@@ -114,7 +114,7 @@ function getNewNote() {
         type: '',
         isPinned: false,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: '#f1c40f'
         },
         info: {}
     }

@@ -12,12 +12,19 @@
 .note-list {
   width: 100%;
   display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   /* grid-auto-flow: dense; */
   /* grid-template-columns: 1fr 1fr; */
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 1em;
   gap: 0.825em;
+  column-gap: 4em;
 }
+
+/* .not-pinned {
+  grid-row: 2;
+} */
 
 /* .not-pinned {
   grid-column:-1 ;
@@ -25,6 +32,7 @@
 
 .note-list .notes-sec {
   display: grid;
+  width: 300px;
 }
 
 
@@ -32,7 +40,7 @@
 .note-list .note-card {
   margin: 0;
   position: relative;
-  width: clamp(100px, 300px, 500px);
+  /* width: clamp(100px, 300px, 500px); */
   display: grid;
   justify-content: space-between;
   gap: 1em;

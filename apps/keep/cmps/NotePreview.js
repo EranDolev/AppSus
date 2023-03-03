@@ -8,11 +8,21 @@ export default {
         <article @mouseover="showBtn=true"  @mouseleave="showBtn=false" class="note-card" :style="{ 'background-color': note.style.backgroundColor }">
             <nav class="nav-edit-note flex">
                 <button v-if="showBtn" class=" btn-edit btn-close" @click="remove(this.note.id)"><i class="fa-regular fa-trash-can"></i></button>
-                <label class="btn-color btn-close" v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
-                    <input  id="create-color" class="btn-edit" @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" style="display: none">
-                </label>
+                <button class="btn-edit btn-close" v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
+                <nav id="create-color" class="nav-color-picker">
+                   <!-- COLOR BTNS -->
+                   <button class="btn-color btn-pink" @click="changeClr(this.note,'#fdcfe8')"></button>
+                   <button class="btn-color btn-purple" @click="changeClr(this.note,'#d7aefb')"></button>
+                    <button class="btn-color btn-darkblue" @click="changeClr(this.note,'#aecbfa')"></button>
+                    <button class="btn-color btn-blue" @click="changeClr(this.note,'#cbf0f8')"></button>
+                    <button class="btn-color btn-green" @click="changeClr(this.note,'#ccff90')"></button>
+                    <button class="btn-color btn-yellow" @click="changeClr(this.note,'#fff475')"></button>
+                    <button class="btn-color btn-red" @click="changeClr(this.note,'#f28b82')"></button>
+                     </nav>
+                     </button>
+                    <!-- <input  id="create-color" class="btn-edit" @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" style="display: none"> -->
                 <button v-if="showBtn" class="btn-edit btn-round" @click="duplicateNote(this.note)"><i class="fa-regular fa-copy"></i></button>
-                <button v-if="showBtn" class="btn-edit btn-round" @click="pinNote(this.note)">Pin</button>
+                <button v-if="showBtn" class="btn-edit btn-round" @click="pinNote(this.note)"><i class="fa-solid fa-map-pin"></i></button>
             </nav>
 
             <article class="note-txt" v-if="note.type === 'NoteTxt'">
@@ -74,6 +84,12 @@ export default {
             newNote.style = note.style
             this.save(newNote)
 
+        },
+        changeClr(note,clr) {
+
+            note.style.backgroundColor = clr
+            console.log('note.style.backgroundColor = clr: ', note.backgroundColor,clr);
+            this.updateNote(note)
         }
     }
 }
