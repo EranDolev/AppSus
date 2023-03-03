@@ -7,37 +7,56 @@ export default {
     template: `
         <article @mouseover="showBtn=true"  @mouseleave="showBtn=false" class="note-card" :style="{ 'background-color': note.style.backgroundColor }">
             <nav class="nav-edit-note flex">
-                <button v-if="showBtn" class=" btn-edit btn-close" @click="remove(this.note.id)"><i class="fa-regular fa-trash-can"></i></button>
-                <button class="btn-edit btn-close" v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
-                <nav id="create-color" class="nav-color-picker">
+                <button title="delete" v-if="showBtn" class=" btn-edit btn-close" @click="remove(this.note.id)"><i class="fa-regular fa-trash-can"></i></button>
+                <button title="Background Color" @mouseover="showClr=true"  @mouseleave="showClr=false" class="btn-edit btn-close" v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
+                    <nav v-if="showClr" id="create-color" class="nav-color-picker">
                    <!-- COLOR BTNS -->
-                   <button class="btn-color btn-pink" @click="changeClr(this.note,'#fdcfe8')"></button>
-                   <button class="btn-color btn-purple" @click="changeClr(this.note,'#d7aefb')"></button>
-                    <button class="btn-color btn-darkblue" @click="changeClr(this.note,'#aecbfa')"></button>
-                    <button class="btn-color btn-blue" @click="changeClr(this.note,'#cbf0f8')"></button>
-                    <button class="btn-color btn-green" @click="changeClr(this.note,'#ccff90')"></button>
-                    <button class="btn-color btn-yellow" @click="changeClr(this.note,'#fff475')"></button>
-                    <button class="btn-color btn-red" @click="changeClr(this.note,'#f28b82')"></button>
-                     </nav>
-                     </button>
+                        <button class="btn-color btn-pink" @click="changeClr(this.note,'#fdcfe8')"></button>
+                        <button class="btn-color btn-purple" @click="changeClr(this.note,'#d7aefb')"></button>
+                        <button class="btn-color btn-darkblue" @click="changeClr(this.note,'#aecbfa')"></button>
+                        <button class="btn-color btn-blue" @click="changeClr(this.note,'#cbf0f8')"></button>
+                        <button class="btn-color btn-green" @click="changeClr(this.note,'#ccff90')"></button>
+                        <button class="btn-color btn-yellow" @click="changeClr(this.note,'#fff475')"></button>
+                        <button class="btn-color btn-red" @click="changeClr(this.note,'#f28b82')"></button>
+                    </nav>
+                </button>
                     <!-- <input  id="create-color" class="btn-edit" @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" style="display: none"> -->
-                <button v-if="showBtn" class="btn-edit btn-round" @click="duplicateNote(this.note)"><i class="fa-regular fa-copy"></i></button>
-                <button v-if="showBtn" class="btn-edit btn-round" @click="pinNote(this.note)"><i class="fa-solid fa-map-pin"></i></button>
+                <button title="Duplicate Note" v-if="showBtn" class="btn-edit btn-round" @click="duplicateNote(this.note)"><i class="fa-regular fa-copy"></i></button>
+                <button title="Pin Note" v-if="showBtn" class="btn-edit btn-round" @click="pinNote(this.note)"><i class="fa-solid fa-map-pin"></i></button>
+                <button title="Edit Note" v-if="showBtn" class="btn-edit btn-round" @click="editNote(this.note)">E</button>
             </nav>
 
             <article class="note-txt" v-if="note.type === 'NoteTxt'">
-                <span>{{ note.info.txt }}</span>
+                <span v-if="!note.edit">{{ note.info.txt }}</span>
+                <article v-if="note.edit">
+                    <input v-model="this.note.info.txt" id="text"  type="text">
+                    <button @click="save(this.note)">save</button>
+                </article>
             </article>
             <article class="note-img" v-if="note.type === 'NoteImg'">
-                <span>{{ note.info.title }}</span>
-                <img :src="note.info.url" alt="url">
+                <article v-if="!note.edit">
+                    <span>{{ note.info.title }}</span>
+                    <img :src="note.info.url" alt="url">
+                </article>
+                <article v-if="note.edit">
+                    <input v-model="this.note.info.title" id="title"  type="title">
+                    <input v-model="this.note.info.url" id="url"  type="url">
+                    <button @click="save(this.note)">save</button>
+                </article>
             </article>
             <article class="note-vid" v-if="note.type === 'NoteVid'">
-                <span>{{ note.info.title }}</span>
-                <video width="320" height="240" onclick="this.paused ? this.play() : this.pause();">
-                    <source src="../assets/vid/video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <article v-if="!note.edit">
+                    <span>{{ note.info.title }} (press to play / pause)</span>
+                    <video width="320" height="240" onclick="this.paused ? this.play() : this.pause();">
+                        <source :src="note.info.url" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </article>
+                <article v-if="note.edit">
+                    <input v-model="this.note.info.title" id="title"  type="title">
+                    <input v-model="this.note.info.url" id="url"  type="url">
+                    <button @click="save(this.note)">save</button>
+                </article>
             </article>
             <article class="note-todos" v-if="note.type === 'NoteTodos'">
                 <span>{{ note.info.title }}</span>
@@ -51,7 +70,8 @@ export default {
     `,
     data() {
         return {
-            showBtn: false
+            showBtn: false,
+            showClr: false
         }
     },
     components: {
@@ -59,9 +79,9 @@ export default {
     },
     methods: {
         save(note) {
+            note.edit = false
             NoteService.save(note)
                 .then(savedNote => {
-                    eventBus.emit('show-msg', { txt: 'Note saved', type: 'success' })
                     note = savedNote
                     this.$emit('save', note)
                 })
@@ -70,12 +90,13 @@ export default {
             this.$emit('remove', noteId)
         },
         updateNote(note) {
-            console.log(note)
             this.save(note)
+            eventBus.emit('show-msg', { txt: 'Note updated', type: 'success' })
         },
         pinNote(note) {
             note.isPinned = !note.isPinned
             this.save(note)
+            eventBus.emit('show-msg', { txt: 'Note pinned', type: 'success' })
         },
         duplicateNote(note) {
             let newNote = NoteService.getNewNote()
@@ -83,6 +104,7 @@ export default {
             newNote.type = note.type
             newNote.style = note.style
             this.save(newNote)
+            eventBus.emit('show-msg', { txt: 'Note duplicated', type: 'success' })
 
         },
         changeClr(note,clr) {
@@ -90,6 +112,10 @@ export default {
             note.style.backgroundColor = clr
             console.log('note.style.backgroundColor = clr: ', note.backgroundColor,clr);
             this.updateNote(note)
+        },
+        editNote(note){
+            note.edit = true
+            console.log(note)
         }
     }
 }

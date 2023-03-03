@@ -10,8 +10,8 @@ export default {
         <form class="form-compose" @submit.prevent="saveNote">
             <input v-if="selectedType === 'txt'" v-model="this.note.info.txt" id="text"  type="text">
 
-            <input v-if="selectedType === 'todo'" v-model="this.note.info.title" id="text"  type="text">
-            <input v-if="selectedType === 'todo'" v-model="string" id="text"  type="text">
+            <input v-if="selectedType === 'todo'" v-model="this.note.info.title" id="text"  type="text" placeholder="Enter Todo list title">
+            <input v-if="selectedType === 'todo'" v-model="string" id="text"  type="text" placeholder="Enter comma separated list">
 
             <input v-if="selectedType === 'img'" v-model="this.note.info.title" id="text"  type="text" placeholder="Give Cool Title">
             <input v-if="selectedType === 'img'" v-model="this.note.info.url" id="text"  type="text" placeholder="Enter Image URL">
@@ -46,6 +46,12 @@ export default {
                 let arr = this.string.split(',')
                 this.note.info.todos = []
                 console.log(this.note.info.todos)
+                for (let i = 0; i<arr.length; i++){
+                    let object = {}
+                    object.txt = arr[i]
+                    object.doneAt = null
+                    this.note.info.todos.push(object)
+                }
             } else if (this.selectedType === 'img') {
                 this.note.type = 'NoteImg'
             }
@@ -54,7 +60,7 @@ export default {
                     eventBus.emit('show-msg', { txt: 'Note saved', type: 'success' })
                     this.note = savedNote
                     this.$router.push('/apps/keep')
-    
+                    this.$emit('save', this.note)
                 })
                 .catch(err => {
                     eventBus.emit('show-msg', { txt: 'Note save failed', type: 'error' })
