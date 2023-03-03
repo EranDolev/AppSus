@@ -3,7 +3,9 @@
 }
 
 html {
-  font-family: 'Edu VIC WA NT Beginner', cursive;
+  /* font-family: 'Edu VIC WA NT Beginner', cursive; */
+  font-family: roboto;
+  letter-spacing: .2em;
   
 }
 
