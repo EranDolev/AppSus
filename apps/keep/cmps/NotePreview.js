@@ -23,7 +23,7 @@ export default {
                 <img :src="note.info.url" alt="url">
             </article>
             <article class="note-vid" v-if="note.type === 'NoteVid'">
-                <span>{{ note.info.title }}</span>
+                <span>{{ note.info.title }} (press to play / pause)</span>
                 <video width="320" height="240" onclick="this.paused ? this.play() : this.pause();">
                     <source src="../assets/vid/video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
