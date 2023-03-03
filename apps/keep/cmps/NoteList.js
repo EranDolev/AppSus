@@ -4,6 +4,7 @@ import AddNote from "./AddNote.js"
 export default {
     props: ['notes'],
     template: `
+        <AddNote/>
     <section class="note-list">
             <article class="notes-sec" :class="getClass(note)" v-for="note in notes" :key="note.id"> 
                     <article class="note-article">
@@ -13,7 +14,7 @@ export default {
                     </article>   
             </article>
 
-        <RouterLink class="link-btn-add" :to="'/apps/keep/note-add/'"><button class="btn-add">Add Note</button></RouterLink>
+        <!-- <RouterLink class="link-btn-add" :to="'/apps/keep/note-add/'"><button class="btn-add">Add Note</button></RouterLink> -->
     </section>
     `,
     methods: {
