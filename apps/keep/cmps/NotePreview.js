@@ -8,7 +8,7 @@ export default {
         <article @mouseover="showBtn=true"  @mouseleave="showBtn=false" class="note-card" :style="{ 'background-color': note.style.backgroundColor }">
             <nav class="nav-edit-note flex">
                 <button title="delete" v-if="showBtn" class=" btn-edit btn-close" @click="remove(this.note.id)"><i class="fa-regular fa-trash-can"></i></button>
-                <button title="Background Color" @mouseover="showClr=true"  @mouseleave="showClr=false" class="btn-edit btn-close" v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
+                <button title="Background Color" @click="showClr=!showClr"  @mouseleave="showClr=false" class="btn-edit btn-close" v-if="showBtn" for="create-color"><i class="fa-solid fa-eye-dropper"></i>
                     <nav v-if="showClr" id="create-color" class="nav-color-picker">
                    <!-- COLOR BTNS -->
                         <button class="btn-color btn-pink" @click="changeClr(this.note,'#fdcfe8')"></button>

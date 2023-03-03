@@ -116,6 +116,6 @@ function getNewNote() {
         style: {
             backgroundColor: '#f1c40f'
         },
-        info: {}
+        info: {},
     }
 }

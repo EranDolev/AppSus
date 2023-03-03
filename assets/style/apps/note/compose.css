@@ -1,9 +1,12 @@
 /** @format */
-
-/* EMAIL FORM */
-
-.form-compose-email {
-  height: 50vh;
+/* NOTE FORM */
+.form-compose-note{
+  transition: 0.4s;
+}
+.form-compose-note.isShown {
+  transition: 0.4s;
+  height: 20.625em;
+  width: 21.125em;
   border-radius: 1em;
   margin-inline: 10px;
   border: var(--secondary-clr4) solid;
@@ -18,17 +21,17 @@
   padding: 1em;
 }
 
-.form-compose-email input {
+.form-compose-note input {
   outline: none;
   border-radius: 1.2em;
   border: 2px solid grey;
 
 }
-.form-compose-email input:hover {
+.form-compose-note input:hover {
   box-shadow: inset 18px 18px 11px #dadce0, inset -18px -18px 11px #dadce0,
     0 3px 3px 0 rgb(60 64 67 / 30%), 0 2px 3px 2px rgb(60 64 67 / 15%);
 }
-.form-compose-email input:focus {
+.form-compose-note input:focus {
   
   box-shadow: inset 4px 4px 1px #dadce0, inset -4px -4px 1px #dadce0,
     0 3px 3px 0 rgb(60 64 67 / 30%), 0 2px 3px 2px rgb(60 64 67 / 15%);

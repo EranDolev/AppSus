@@ -6,7 +6,7 @@ export default {
     template: `
         <section class="email-compose">
             <h2>New Message</h2>
-            <form class="form-compose" @submit.prevent="save">
+            <form class="form-compose-email" @submit.prevent="save">
                 <!-- <input 
                 type="text"
                 placeholder="your-email"> -->

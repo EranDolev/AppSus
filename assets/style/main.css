@@ -25,3 +25,5 @@
 
 /* EMAIL */
 @import 'apps/mail/compose.css';
+/* NOTES */
+@import 'apps/note/compose.css';

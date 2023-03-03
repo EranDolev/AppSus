@@ -2,12 +2,15 @@ import { NoteService } from "../../../services/note.service.js";
 import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
-    template:`
+    props: ['note'],
+    template: `
         <h1>add note</h1>
-        <button @click="setNoteType('txt')">Text</button>
-        <button @click="setNoteType('img')">Image</button>
-        <button @click="setNoteType('todo')">To Do List</button>
-        <form class="form-compose" @submit.prevent="saveNote">
+            <nav class="nav-add-note">
+                <button class="btn-note"  @click="setNoteType('txt', note)" >Text</button>
+                <button class="btn-note" @click="setNoteType('img', note)">Image</button>
+                <button class="btn-note" @click="setNoteType('todo', note)">To Do List</button>
+            </nav>
+        <form class="form-compose-note"  :class="{ isShown : note.shown}" @submit.prevent="saveNote">
             <input v-if="selectedType === 'txt'" v-model="this.note.info.txt" id="text"  type="text">
 
             <input v-if="selectedType === 'todo'" v-model="this.note.info.title" id="text"  type="text" placeholder="Enter Todo list title">
@@ -15,7 +18,7 @@ export default {
 
             <input v-if="selectedType === 'img'" v-model="this.note.info.title" id="text"  type="text" placeholder="Give Cool Title">
             <input v-if="selectedType === 'img'" v-model="this.note.info.url" id="text"  type="text" placeholder="Enter Image URL">
-        <button>save note</button>
+        <button v-if="note.shown === true">save note</button>
         </form>
     `,
     data() {
@@ -28,13 +31,17 @@ export default {
                 type: '',
                 isPinned: false,
                 style: { backgroundColor: '#00d' },
-                info: {}
+                info: {},
+                shown: false,
             }
         }
     },
     methods: {
-        setNoteType(type) {
+        setNoteType(type, note) {
             this.selectedType = type
+            note.shown = true
+            // this.classList.add = "isShow"
+            // console.log('this.shown: ', this.shown);
             console.log(this.selectedType)
         },
         saveNote() {
@@ -46,7 +53,7 @@ export default {
                 let arr = this.string.split(',')
                 this.note.info.todos = []
                 console.log(this.note.info.todos)
-                for (let i = 0; i<arr.length; i++){
+                for (let i = 0; i < arr.length; i++) {
                     let object = {}
                     object.txt = arr[i]
                     object.doneAt = null
@@ -67,5 +74,5 @@ export default {
                 })
         }
     },
-    
+
 }

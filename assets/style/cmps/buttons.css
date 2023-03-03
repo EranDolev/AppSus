@@ -12,7 +12,7 @@
 } */
 
 .btn-edit {
-  color: var(--secondary-clr1);
+  color: var(--secondary-clr4);
   grid-row: 1 / span 2;
   font-size: 1.5em;
   background-color: #ffffff00;
@@ -21,7 +21,7 @@
   border: 0;
   width: 1%;
   height: 1%;
-  filter: drop-shadow(0.5px -0.5px 0px var(--secondary-clr4));
+  filter: drop-shadow(0.5px -0.5px 0px var(--secondary-clr2));
 }
 
 .btn-edit:hover {
@@ -89,7 +89,9 @@
   background-color: #ccff90;
 }
 
-.email-list .btn-close {
+ .btn-close-email {
+  position: relative;
+  /* top: 110%; */
   min-width: 2px;
   min-height: 2px;
   height: 2em;
@@ -148,12 +150,7 @@
   right: 2em;
 }
 
-.email-list .btn-close {
-  position: absolute;
-  margin-block-start: 0.3em;
-  top: 10%;
-  left: 96%;
-}
+
 
 .link-btn-add {
   position: absolute;
