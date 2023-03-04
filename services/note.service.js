@@ -84,9 +84,6 @@ function query(filterBy = {}) {
             const regex = new RegExp(filterBy.txt, 'i')
             notes = notes.filter(note => regex.test(note.type))
         }
-        // if (filterBy.minPrice) {
-        //     notes = notes.filter(note => note.listPrice.amount >= filterBy.minPrice)
-        // }
         return notes
     })
 }
