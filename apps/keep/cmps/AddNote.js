@@ -35,7 +35,7 @@ export default {
                 createdAt: Date.now(),
                 type: '',
                 isPinned: false,
-                style: { backgroundColor: '#00d' },
+                style: { backgroundColor: '#cbf0f8' },
                 info: {},
                 shown: false,
             }

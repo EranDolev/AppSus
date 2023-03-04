@@ -115,11 +115,13 @@
   position: relative;
   width: 3em;
   z-index: 3;
-  background-color: #c2dbffd0;
+  background-color: rgb(194 231 255);
   box-shadow: inset 0 -3px 0 0 rgb(100 121 143 / 12%);
+  filter: drop-shadow(1px 1px 1px rgb(100 121 143 / 42%));
   border-radius: 0.5em;
   color: var(--clr4);
   border: none;
+  margin-block-end: 0.5em;
   transition: 0.4s;
 }
 
@@ -136,6 +138,36 @@
   position: absolute;
   right: .6em;
 }
+
+.btn-inbox {
+  position: relative;
+  width: 2.5em;
+  min-width: 0px;
+  z-index: 3;
+  background-color: rgb(194 231 255);
+  box-shadow: inset 0 -3px 0 0 rgb(100 121 143 / 12%);
+  filter: drop-shadow(1px 1px 1px rgb(100 121 143 / 42%));
+  border-radius: 0.5em;
+  color: var(--clr4);
+  border: none;
+  transition: 0.4s;
+}
+
+.btn-inbox:hover {
+  box-shadow: inset 2px 2px 0 var(--secondary-clr2),
+    inset -2px -2px 0 var(--secondary-clr2), 0 2px 2px 0 rgb(60 64 67 / 30%),
+    0 2px 3px 2px rgb(60 64 67 / 15%);
+  padding-inline-end: 5.4em;
+}
+
+.btn-inbox:hover ::after {
+  font-family: roboto;
+  content: " Inbox";
+  position: absolute;
+  right: .6em;
+}
+
+
 
 .btn-send {
   /* justify-self: center; */

@@ -7,9 +7,9 @@ import { eventBus } from "../../../services/event-bus.service.js"
 export default {
     template: `
     <!-- <h1 class="page-greet">hello world</h1> -->
-    <section> {{ this.count }} </section>
     <section class="email-index">
-        <EmailFolderList/>
+        <section> {{ this.count }} </section>
+        <EmailFolderList :count="data"/>
 
         <EmailFilter @filter="setFilterBy"/>
             <EmailList

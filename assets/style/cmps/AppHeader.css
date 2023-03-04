@@ -1,3 +1,5 @@
+/** @format */
+
 .app-header {
   display: flex;
   justify-content: space-between;
@@ -8,10 +10,28 @@
   height: 5em;
 }
 .nav-header {
-  height: 5em;
+  justify-content: end;
+  justify-items: end;
+  align-items: end;
+  height: 2.7em;
+  width: 26em;
+  min-width: 482px;
   font-size: 1.5em;
-  /* padding-left: 19rem; */
-  justify-content: flex-end;
+  gap: 1em;
+  justify-content: space-between;
+  /* justify-content: flex-end; */
+}
+
+.nav-header > * {
+  padding: 0.2em;
+  border-left: 2px solid var(--secondary-clr2);
+  min-height: 0px;
+}
+
+.nav-header > :last-child {
+  padding: 0.2em;
+  border-right: 2px solid var(--secondary-clr2);
+  min-height: 0px;
 }
 
 .app-menu {
@@ -24,8 +44,8 @@
   /* flex-flow: column; */
 }
 .logo-menu {
-grid-row: 1;
-grid-column: 2;
+  grid-row: 1;
+  grid-column: 2;
 }
 .nav-menu {
   width: 100%;
