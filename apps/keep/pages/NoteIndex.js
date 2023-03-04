@@ -7,12 +7,12 @@ export default {
     template: `
     <!-- <h1>hello note world</h1> -->
     <section class="keep-index">
-    <!-- <NoteFilter @filter="setFilterBy"/>
+    <NoteFilter @filter="setFilterBy"/>
             <NoteList
                 :notes="filteredNotes"
-                @remove="removeNote" /> -->
+                @remove="removeNote" />
 
-    <NoteList :notes = "notes" @remove="removeNote" @save="notesToShow"/>
+    <!-- <NoteList :notes = "notes" @remove="removeNote" @save="notesToShow"/> -->
     <!-- <pre> {{ user }} </pre> -->
     </section>
     `,
@@ -46,6 +46,16 @@ export default {
         },
         setFilterBy(filterBy) {
             this.filterBy = filterBy
+            console.log(this.filterBy)
+        },
+    },
+    computed: {
+        filteredNotes() {
+
+            const regex = new RegExp((this.filterBy.txt), 'i')
+            console.log(this.notes)
+            return this.notes.filter(note => regex.test(note.info.title))
+
         },
         computed: {
             filteredNotes() {

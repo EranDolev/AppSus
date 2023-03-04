@@ -29,8 +29,8 @@ function _createNotes() {
                     backgroundColor: '#f1c40f'
                 },
                 info: {
-                    txt: 'Fullstack Me Baby!',
-                    title: 'Bobi and Me'
+                    title: 'hello',
+                    txt: 'Fullstack Me Baby!'
                 }
             },
             {
