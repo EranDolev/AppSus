@@ -66,16 +66,8 @@ export default {
             } else if (this.selectedType === 'img') {
                 this.note.type = 'NoteImg'
             }
-            NoteService.save(this.note)
-                .then(savedNote => {
-                    eventBus.emit('show-msg', { txt: 'Note saved', type: 'success' })
-                    this.note = savedNote
-                    this.$router.push('/apps/keep')
-                    this.$emit('save', this.note)
-                })
-                .catch(err => {
-                    eventBus.emit('show-msg', { txt: 'Note save failed', type: 'error' })
-                })
+            this.$emit('save', this.note)
+
         }
     },
 
