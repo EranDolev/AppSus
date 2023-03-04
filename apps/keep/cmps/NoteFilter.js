@@ -1,7 +1,7 @@
 export default {
     template: `
         <section class="note-filter">
-            <input 
+            <input class="note-search-input"
                 v-model="filterBy.txt"
              
                 placeholder="&#xF002;  Search note" style="font-family:roboto, FontAwesome"
