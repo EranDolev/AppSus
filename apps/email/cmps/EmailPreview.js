@@ -39,9 +39,4 @@ export default {
             else return 'unread'
         }
     },
-    created() {
-        if (!this.email.isRead) {
-            this.$emit('setCount', 1)
-        }
-    }
 }

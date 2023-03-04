@@ -7,6 +7,7 @@ import { eventBus } from "../../../services/event-bus.service.js"
 export default {
     template: `
     <!-- <h1 class="page-greet">hello world</h1> -->
+    <section> {{ this.count }} </section>
     <section class="email-index">
         <EmailFolderList/>
 
@@ -25,6 +26,7 @@ export default {
             emails: [],
             filterBy: {},
             user: {},
+            count: 0,
         }
     },
     created() {
@@ -33,6 +35,8 @@ export default {
                 this.emails = emails
             })
         this.user = EmailService.createUser()
+
+
         // console.log('EmailService.createUser(): ', EmailService.createUser());
     },
     methods: {
@@ -58,15 +62,24 @@ export default {
     },
     computed: {
         filteredEmails() {
+            this.count = 0
+            this.emails.forEach((email) => {
+                if (!email.isRead) {
+                    console.log(this.count)
+                    this.count ++
+                }
+            })
+
             const regex = new RegExp((this.filterBy.txt), 'i')
             return this.emails.filter(email => regex.test(email.subject) || regex.test(email.from))
+
         },
     },
     components: {
         EmailList,
         EmailFilter,
         EmailFolderList,
-    }
+    },
 
 
 }
