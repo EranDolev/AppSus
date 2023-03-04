@@ -12,6 +12,10 @@
   font-family: roboto;
 }
 
+.email{
+  position: relative;
+}
+
 /* .email */
 
 .sec-folder-list {

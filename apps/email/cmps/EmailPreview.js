@@ -2,13 +2,12 @@ export default {
     props: ['email'],
     template: `
      <!-- NEED TO DO THIS WITH MODAL SO THE CLOSE BTN WILLL WORK.. -->
-        <article  @mouseover="showBtn=true"  @mouseleave="showBtn=false">
+        <article class="email"  @mouseover="showBtn=true"  @mouseleave="showBtn=false">
             <RouterLink :class="getClass(email)" class="email-card" :to="'/apps/email/'+email.id">
                 <span>From: {{ email.from }}</span>
                 <span>{{ email.subject }}</span>
             </RouterLink>
-            <button v-if="showBtn" class="btn-round btn-close-email
-            " @click="remove(email.id)">x</button> 
+            <button v-if="showBtn" class="btn-round btn-close-email" @click="remove(email.id)">x</button> 
           
             <!-- <h2>{{ email.body }}</h3> -->
         </article>

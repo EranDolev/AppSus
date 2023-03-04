@@ -90,12 +90,14 @@
 }
 
  .btn-close-email {
-  position: relative;
+  position: absolute;
   /* top: 110%; */
   min-width: 2px;
   min-height: 2px;
   height: 2em;
   width: 2em;
+  top: 20%;
+  right: 2em;
 }
 
 .btn-compose {
