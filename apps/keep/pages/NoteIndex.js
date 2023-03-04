@@ -10,7 +10,8 @@ export default {
     <NoteFilter @filter="setFilterBy"/>
             <NoteList
                 :notes="filteredNotes"
-                @remove="removeNote" />
+                @remove="removeNote"
+                @save="saveNote" />
 
     <!-- <NoteList :notes = "notes" @remove="removeNote" @save="notesToShow"/> -->
     <!-- <pre> {{ user }} </pre> -->
@@ -48,6 +49,20 @@ export default {
             this.filterBy = filterBy
             console.log(this.filterBy)
         },
+        saveNote(note){
+            console.log(note)
+            NoteService.save(note)
+            .then(savedNote => {
+                this.note = savedNote
+                eventBus.emit('show-msg', { txt: 'Note saved', type: 'success' })
+                // this.$router.push('/apps/keep')
+                this.notesToShow()
+                
+            })
+            .catch(err => {
+                eventBus.emit('show-msg', { txt: 'Note save failed', type: 'error' })
+            })
+        }
     },
     computed: {
         filteredNotes() {
