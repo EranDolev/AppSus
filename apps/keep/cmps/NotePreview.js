@@ -23,11 +23,11 @@ export default {
                     <!-- <input  id="create-color" class="btn-edit" @change="updateNote(this.note)" v-model="this.note.style.backgroundColor" type="color" style="display: none"> -->
                 <button title="Duplicate Note" v-if="showBtn" class="btn-edit btn-round" @click="duplicateNote(this.note)"><i class="fa-regular fa-copy"></i></button>
                 <button title="Pin Note" v-if="showBtn" class="btn-edit btn-round" @click="pinNote(this.note)"><i class="fa-solid fa-map-pin"></i></button>
-                <button title="Edit Note" v-if="showBtn" class="btn-edit btn-round" @click="editNote(this.note)">E</button>
+                <button title="Edit Note" v-if="showBtn" class="btn-edit btn-round" @click="editNote(this.note)"><i class="fa-solid fa-pencil"></i></button>
             </nav>
 
             <article class="note-txt" v-if="note.type === 'NoteTxt'">
-                <h2 v-if="!note.edit">{{ note.info.title }}</h2>
+                <h3 class="note-title" v-if="!note.edit">{{ note.info.title }}</h3>
                 <span v-if="!note.edit">{{ note.info.txt }}</span>
                 <article v-if="note.edit">
                     <input v-model="this.note.info.txt" id="text"  type="text">
@@ -36,7 +36,7 @@ export default {
             </article>
             <article class="note-img" v-if="note.type === 'NoteImg'">
                 <article v-if="!note.edit">
-                    <h2>{{ note.info.title }}</h2>
+                    <h3>{{ note.info.title }}</h3>
                     <img :src="note.info.url" alt="url">
                 </article>
                 <article v-if="note.edit">
@@ -47,8 +47,8 @@ export default {
             </article>
             <article class="note-vid" v-if="note.type === 'NoteVid'">
                 <article v-if="!note.edit">
-                    <h2>{{ note.info.title }} (press to play / pause)</h2>
-                    <video width="320" height="240" onclick="this.paused ? this.play() : this.pause();">
+                    <h3>{{ note.info.title }} (press to play / pause)</h3>
+                    <video width="320" height="200" onclick="this.paused ? this.play() : this.pause();">
                         <source :src="note.info.url" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -60,7 +60,7 @@ export default {
                 </article>
             </article>
             <article class="note-todos" v-if="note.type === 'NoteTodos'">
-                <h2>{{ note.info.title }}</h2>
+                <h3>{{ note.info.title }}</h3>
                 <ul>
                     <li :style="{ 'background-color': note.style.backgroundColor }" v-for="todo in note.info.todos" :key="note.info.todo"> 
                         <TodoPreview :todo="todo"/>

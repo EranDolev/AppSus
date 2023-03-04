@@ -5,8 +5,9 @@
 }
 .form-compose-note.isShown {
   transition: 0.4s;
-  /* height: 20.625em;
-  width: 21.125em; */
+   /* max-width: 24.125em;
+   min-width: 15.125em; */
+   width: clamp(250px, 40vw, 500px);
   border-radius: 1em;
   margin-inline: 10px;
   border: var(--secondary-clr4) solid;

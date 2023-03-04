@@ -61,3 +61,7 @@ button {
   outline: 1px solid gold
 }
 
+.bg-img {
+  height: 100vh;
+}
+

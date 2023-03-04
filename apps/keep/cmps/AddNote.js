@@ -7,7 +7,7 @@ export default {
         <section class="sec-add-note">
             <div class="nav-note-container">
                 <nav class="nav-add-note">
-                    <input class="input-note" v-model="this.note.info.title" v-model="this.placeholder" id="text" type="text" placeholder="{{this.placeholder}}">
+                    <input class="input-note" @click="setNoteType('txt', note)" v-model="this.note.info.title" id="text" type="text" placeholder="Enter title">
                     <button class="btn-note"  @click="setNoteType('txt', note)" >Text</button>
                     <button class="btn-note" @click="setNoteType('img', note)">Image</button>
                     <button class="btn-note" @click="setNoteType('todo', note)">To Do List</button>

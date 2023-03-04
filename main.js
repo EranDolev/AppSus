@@ -11,11 +11,13 @@ const options = {
     template: `
         <section class="main-layout">
             <AppHeader />
+            <img class="bg-img" src="/assets/img/apsus-bgc.jpg" alt="">
             <RouterView />
             <!-- <HomeApps/> -->
             <UserMsg />
             <AppFooter />
         </section>
+
     `,
     components: {
         AppHeader,
