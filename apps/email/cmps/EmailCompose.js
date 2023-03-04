@@ -38,11 +38,12 @@ export default {
         data() {
             return {
                 email: {
+                    from: 'user@appsus.com',
                     id: null,
                     subject: '',
                     body: '',
                     to: '',
-                    from: 'user@appsus.com'
+                    isRead: true,
                 }
             }
         },

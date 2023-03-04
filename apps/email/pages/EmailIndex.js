@@ -9,9 +9,9 @@ export default {
     <!-- <h1 class="page-greet">hello world</h1> -->
     <section class="email-index">
         <section> {{ this.count }} </section>
-        <EmailFolderList @filter="setFilterInbox"/>
+        <EmailFolderList @filter="setFilterInbox" />
 
-        <EmailFilter @filter="setFilterBy"/>
+        <EmailFilter @filter="setFilterBy" @filterRead="setFilterRead"/>
             <EmailList
                 :emails="filteredEmails"
                 @remove="removeEmail"
@@ -27,7 +27,7 @@ export default {
             filterBy: {
                 txt: '',
                 sendSent: '',
-                isSend: false
+                isRead: '',
             },
             user: {},
             count: 0,
@@ -59,18 +59,28 @@ export default {
         setRead(email) {
             email.isRead = !email.isRead
         },
-
+        setFilterRead(value){
+            console.log(value);
+            EmailService.query()
+            .then(emails => {
+                this.emails = emails
+            })
+            this.filterBy.isRead = value
+        },
         setFilterBy(filterBy) {
             this.filterBy.txt = filterBy.txt
         },
-        setFilterInbox(filterBy,) {
-            if (this.filterBy.sendSent === 'inbox') this.isSend = true
-            if (this.filterBy.sendSent === 'sent') this.isSend = false
+        setFilterInbox(filterBy) {
+            EmailService.query()
+            .then(emails => {
+                this.emails = emails
+            })
             this.filterBy.sendSent = filterBy.sendSent
         },
     },
     computed: {
         filteredEmails() {
+
             this.count = 0
             this.emails.forEach((email) => {
                 if (!email.isRead) {
@@ -78,15 +88,28 @@ export default {
                     this.count++
                 }
             })
-            if (this.isSend) {
-                var regexInbox = new RegExp('user@appsus.com')
-            } 
-            else {var  regexInbox = new RegExp('') }
-                const regex = new RegExp((this.filterBy.txt), 'i')
 
-            if (this.isSend) {
-                return this.emails.filter(email => regexInbox.test(email.from))
-            }else  return this.emails.filter(email => regex.test(email.subject) || regex.test(email.from))
+            const sender = 'user@appsus.com'
+            if (this.filterBy.sendSent === 'sent'){
+                console.log( this.filterBy.sendSent)
+                console.log( this.emails)
+                this.emails = this.emails.filter(email => email.from === sender)
+                console.log( this.emails)
+            } else {
+                console.log( this.emails)
+                this.emails = this.emails.filter(email => email.from !== sender) 
+                console.log( this.emails)
+            }
+
+            if (this.filterBy.isRead === 'unread'){
+                this.emails = this.emails.filter(email => !email.isRead)
+            } else if (this.filterBy.isRead === 'read'){
+                this.emails = this.emails.filter(email => email.isRead === true) 
+            }
+
+
+            const regex = new RegExp((this.filterBy.txt), 'i')
+            return this.emails.filter(email => regex.test(email.subject) || regex.test(email.from))
 
         },
     },
