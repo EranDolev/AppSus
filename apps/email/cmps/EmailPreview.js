@@ -8,8 +8,8 @@ export default {
                 <span>From: {{ email.from }}</span>
                 <span>{{ email.subject }}</span>
             </RouterLink>
-            <button v-if="showBtn" class="btn-round btn-close-email" @click="remove(email.id)">x</button> 
-            <button v-if="showBtn" class="btn-round btn-read-email" @click="setRead(email)">R</button> 
+            <button v-if="showBtn" class="btn-close-email" @click="remove(email.id)"><i class="fa-solid fa-trash-can"></i></button> 
+            <button v-if="showBtn" class="btn-read-email" @click="setRead(email)"><i class="fa-solid fa-envelope"></i></button> 
           
             <!-- <h2>{{ email.body }}</h3> -->
         </article>

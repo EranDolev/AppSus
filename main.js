@@ -11,11 +11,13 @@ const options = {
     template: `
         <section class="main-layout">
             <AppHeader />
+            
             <RouterView />
             <!-- <HomeApps/> -->
             <UserMsg />
             <AppFooter />
         </section>
+
     `,
     components: {
         AppHeader,
