@@ -42,6 +42,7 @@ export default {
                     subject: '',
                     body: '',
                     to: '',
+                    from: 'user@appsus.com'
                 }
             }
         },

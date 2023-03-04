@@ -26,7 +26,8 @@ export default {
             emails: [],
             filterBy: {
                 txt: '',
-                sendSent: 'inbox'
+                sendSent: '',
+                isSend: false
             },
             user: {},
             count: 0,
@@ -62,7 +63,9 @@ export default {
         setFilterBy(filterBy) {
             this.filterBy.txt = filterBy.txt
         },
-        setFilterInbox(filterBy) {
+        setFilterInbox(filterBy,) {
+            if (this.filterBy.sendSent === 'inbox') this.isSend = true
+            if (this.filterBy.sendSent === 'sent') this.isSend = false
             this.filterBy.sendSent = filterBy.sendSent
         },
     },
@@ -72,13 +75,18 @@ export default {
             this.emails.forEach((email) => {
                 if (!email.isRead) {
                     console.log(this.count)
-                    this.count ++
+                    this.count++
                 }
             })
-            
-            const regexInbox = new RegExp('momo@momo.com')
-            const regex = new RegExp((this.filterBy.txt), 'i')
-            return this.emails.filter(email => regex.test(email.subject) || regex.test(email.from)), this.emails.filter(email => regexInbox.test(email.from))
+            if (this.isSend) {
+                var regexInbox = new RegExp('user@appsus.com')
+            } 
+            else {var  regexInbox = new RegExp('') }
+                const regex = new RegExp((this.filterBy.txt), 'i')
+
+            if (this.isSend) {
+                return this.emails.filter(email => regexInbox.test(email.from))
+            }else  return this.emails.filter(email => regex.test(email.subject) || regex.test(email.from))
 
         },
     },
