@@ -16,11 +16,6 @@ export default {
             },
         }
     },
-    methods: {
-        filter() {
-            this.$emit('filter', this.filterBy)
-        }
-    },
     watch: {
         filterBy: {
             handler() {

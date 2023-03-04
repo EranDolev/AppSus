@@ -7,8 +7,8 @@ export default {
     template: `
     <!-- <h1>hello note world</h1> -->
     <section class="keep-index">
-    <NoteFilter @filter="setFilterBy"/>
-            <!-- <NoteList
+    <!-- <NoteFilter @filter="setFilterBy"/>
+            <NoteList
                 :notes="filteredNotes"
                 @remove="removeNote" /> -->
 
@@ -23,7 +23,7 @@ export default {
         }
     },
     created() {
-       this.notesToShow()
+        this.notesToShow()
     },
     methods: {
         removeNote(noteId) {
@@ -38,20 +38,25 @@ export default {
                 })
         },
 
-        notesToShow(){
+        notesToShow() {
             NoteService.query()
-            .then(notes => {
-                this.notes = notes
-            })
+                .then(notes => {
+                    this.notes = notes
+                })
         },
         setFilterBy(filterBy) {
             this.filterBy = filterBy
         },
-    },
-    components: {
-        NoteList,
-        NoteFilter,
+        computed: {
+            filteredNotes() {
+                const regex = new RegExp((this.filterBy.txt), 'i')
+                return this.notes.filter(note => regex.test(note.info.title))
+            },
+        },
+        components: {
+            NoteList,
+            NoteFilter,
+        }
+
     }
-
-
 }

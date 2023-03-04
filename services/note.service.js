@@ -29,7 +29,8 @@ function _createNotes() {
                     backgroundColor: '#f1c40f'
                 },
                 info: {
-                    txt: 'Fullstack Me Baby!'
+                    txt: 'Fullstack Me Baby!',
+                    title: 'Bobi and Me'
                 }
             },
             {
@@ -81,11 +82,8 @@ function query(filterBy = {}) {
     .then(notes => {
         if (filterBy.txt) {
             const regex = new RegExp(filterBy.txt, 'i')
-            notes = notes.filter(note => regex.test(note.type))
+            notes = notes.filter(note => regex.test(note.info.title))
         }
-        // if (filterBy.minPrice) {
-        //     notes = notes.filter(note => note.listPrice.amount >= filterBy.minPrice)
-        // }
         return notes
     })
 }
