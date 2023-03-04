@@ -8,9 +8,9 @@ export default {
     <!-- <h1>hello note world</h1> -->
     <section class="keep-index">
     <NoteFilter @filter="setFilterBy"/>
-            <NoteList
+            <!-- <NoteList
                 :notes="filteredNotes"
-                @remove="removeNote" />
+                @remove="removeNote" /> -->
 
     <NoteList :notes = "notes" @remove="removeNote" @save="notesToShow"/>
     <!-- <pre> {{ user }} </pre> -->

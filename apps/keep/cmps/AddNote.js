@@ -5,19 +5,21 @@ export default {
     props: ['note'],
     template: `
         <section class="sec-add-note">
-            <h1>add note</h1>
+            <div class="nav-note-container">
                 <nav class="nav-add-note">
+                    <input class="input-note" v-model="this.note.info.title" v-model="this.placeholder" id="text" type="text" placeholder="{{this.placeholder}}">
                     <button class="btn-note"  @click="setNoteType('txt', note)" >Text</button>
                     <button class="btn-note" @click="setNoteType('img', note)">Image</button>
                     <button class="btn-note" @click="setNoteType('todo', note)">To Do List</button>
                 </nav>
+            </div>
             <form class="form-compose-note"  :class="{ isShown : note.shown}" @submit.prevent="saveNote">
-                <input v-if="selectedType === 'txt', note.shown === true" v-model="this.note.info.txt" id="text"  type="text">
+                <input v-if="selectedType === 'txt'" v-model="this.note.info.txt" id="text"  type="text" placeholder="Enter your text">
 
-                <input v-if="selectedType === 'todo'" v-model="this.note.info.title" id="text"  type="text" placeholder="Enter Todo list title">
+                <!-- <input v-if="selectedType === 'todo'" v-model="this.note.info.title" id="text"  type="text" placeholder="Enter Todo list title"> -->
                 <input v-if="selectedType === 'todo'" v-model="string" id="text"  type="text" placeholder="Enter comma separated list">
 
-                <input v-if="selectedType === 'img'" v-model="this.note.info.title" id="text"  type="text" placeholder="Give Cool Title">
+                <!-- <input v-if="selectedType === 'img'" v-model="this.note.info.title" id="text"  type="text" placeholder="Give Cool Title"> -->
                 <input v-if="selectedType === 'img'" v-model="this.note.info.url" id="text"  type="text" placeholder="Enter Image URL">
             <button v-if="note.shown === true">save note</button>
             </form>
@@ -26,7 +28,8 @@ export default {
     data() {
         return {
             string: '',
-            selectedType: 'txt',
+            selectedType: '',
+            placeholder: 'Take a note...',
             note: {
                 id: null,
                 createdAt: Date.now(),
@@ -41,9 +44,8 @@ export default {
     methods: {
         setNoteType(type, note) {
             this.selectedType = type
+            this.placeholder = "Your title"
             note.shown = true
-            // this.classList.add = "isShow"
-            // console.log('this.shown: ', this.shown);
             console.log(this.selectedType)
         },
         saveNote() {
