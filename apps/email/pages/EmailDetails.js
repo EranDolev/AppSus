@@ -19,11 +19,25 @@ export default {
         // console.log('email:', email, 'email id:', emailId);
         this.emailId = this.$route.params.emailId
         this.loadEmail()
+            .then(() => {
+                console.log(this.email)
+                this.email.isRead = true
+                console.log(this.email)
+            })
+            .then(() => {
+                EmailService.save(this.email)
+            })
+        
+        
     },
     methods: {
         loadEmail() {
-            EmailService.get(this.emailId)
-                .then(email => this.email = email)
+            return EmailService.get(this.emailId)
+                .then((email) => {
+                    this.email = email
+                    console.log(this.email)
+                    return this.email
+                })
         },
     }
 }

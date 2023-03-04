@@ -13,7 +13,8 @@ export default {
         <EmailFilter @filter="setFilterBy"/>
             <EmailList
                 :emails="filteredEmails"
-                @remove="removeEmail" />
+                @remove="removeEmail"
+                @setRead="setRead" />
                  
     <!-- <EmailList :emails = "emails" @remove="removeEmail"/> -->
     <!-- <pre> {{ user }} </pre> -->
@@ -46,6 +47,11 @@ export default {
                     eventBus.emit('show-msg', { txt: 'email remove failed', type: 'error' })
                 })
         },
+
+        setRead(email) {
+            email.isRead = !email.isRead
+        },
+
         setFilterBy(filterBy) {
             this.filterBy = filterBy
         },

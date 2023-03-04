@@ -6,15 +6,21 @@ export default {
     props: ['emails'],
     template: `
     <section class="email-list ">
+        <span>Unread Emails: {{ this.unreadCount }}</span>
         <ul>
             <li class="clean-list" v-for="email in emails" :key="email.id"> 
-                    <EmailPreview :email="email" @remove="remove"/>
+                    <EmailPreview :email="email" @remove="remove" @setRead="setRead" @setCount="updateCount"/>
             </li>
         </ul>
        
     </section>
 
     `,
+    data () {
+        return {
+            unreadCount: 0
+        }
+    },
     methods: {
         showDetails(emailId) {
             this.$emit('show-details', emailId)
@@ -22,6 +28,13 @@ export default {
         remove(emailId) {
             this.$emit('remove', emailId)
         },
+        setRead(email) {
+            this.$emit('setRead', email)
+        },
+        updateCount(count){
+            this.unreadCount += count
+            console.log(this.unreadCount)
+        }
         
     },
 
