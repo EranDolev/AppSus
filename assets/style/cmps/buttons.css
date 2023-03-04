@@ -314,3 +314,18 @@
 .select-unread {
   outline: none;
 }
+
+.btn-backmail {
+  color: var(--clr4);
+  font-size: 1.7em;
+  background-color: #ffffff00;
+  border: 0;
+  opacity: 1;
+  transition: .4s;
+}
+.btn-backmail:hover {
+  font-size: 1.7em;
+  background-color: #ffffff00;
+  border: 0;
+  opacity: .5;
+}
