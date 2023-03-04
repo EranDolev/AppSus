@@ -27,6 +27,7 @@ export default {
             </nav>
 
             <article class="note-txt" v-if="note.type === 'NoteTxt'">
+                <h2 v-if="!note.edit">{{ note.info.title }}</h2>
                 <span v-if="!note.edit">{{ note.info.txt }}</span>
                 <article v-if="note.edit">
                     <input v-model="this.note.info.txt" id="text"  type="text">
@@ -35,7 +36,7 @@ export default {
             </article>
             <article class="note-img" v-if="note.type === 'NoteImg'">
                 <article v-if="!note.edit">
-                    <span>{{ note.info.title }}</span>
+                    <h2>{{ note.info.title }}</h2>
                     <img :src="note.info.url" alt="url">
                 </article>
                 <article v-if="note.edit">
@@ -46,7 +47,7 @@ export default {
             </article>
             <article class="note-vid" v-if="note.type === 'NoteVid'">
                 <article v-if="!note.edit">
-                    <span>{{ note.info.title }} (press to play / pause)</span>
+                    <h2>{{ note.info.title }} (press to play / pause)</h2>
                     <video width="320" height="240" onclick="this.paused ? this.play() : this.pause();">
                         <source :src="note.info.url" type="video/mp4">
                         Your browser does not support the video tag.
@@ -59,7 +60,7 @@ export default {
                 </article>
             </article>
             <article class="note-todos" v-if="note.type === 'NoteTodos'">
-                <span>{{ note.info.title }}</span>
+                <h2>{{ note.info.title }}</h2>
                 <ul>
                     <li :style="{ 'background-color': note.style.backgroundColor }" v-for="todo in note.info.todos" :key="note.info.todo"> 
                         <TodoPreview :todo="todo"/>

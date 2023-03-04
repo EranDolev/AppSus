@@ -4,7 +4,6 @@ export default {
             <input 
                 v-model="filterBy.txt"
              
-                @input="filter" 
                 placeholder="&#xF002;  Search note" style="font-family:roboto, FontAwesome"
                 type="text" />
         </section>
@@ -14,11 +13,6 @@ export default {
             filterBy: {
                 txt: '',
             },
-        }
-    },
-    methods: {
-        filter() {
-            this.$emit('filter', this.filterBy)
         }
     },
     watch: {

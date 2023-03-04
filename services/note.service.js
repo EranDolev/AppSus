@@ -29,6 +29,7 @@ function _createNotes() {
                     backgroundColor: '#f1c40f'
                 },
                 info: {
+                    title: 'hello',
                     txt: 'Fullstack Me Baby!'
                 }
             },
