@@ -9,7 +9,7 @@ export default {
     <!-- <h1 class="page-greet">hello world</h1> -->
     <section class="email-index">
         <section> {{ this.count }} </section>
-        <EmailFolderList :count="data"/>
+        <EmailFolderList @filter="setFilterInbox"/>
 
         <EmailFilter @filter="setFilterBy"/>
             <EmailList
@@ -24,7 +24,10 @@ export default {
     data() {
         return {
             emails: [],
-            filterBy: {},
+            filterBy: {
+                txt: '',
+                sendSent: 'inbox'
+            },
             user: {},
             count: 0,
         }
@@ -57,7 +60,10 @@ export default {
         },
 
         setFilterBy(filterBy) {
-            this.filterBy = filterBy
+            this.filterBy.txt = filterBy.txt
+        },
+        setFilterInbox(filterBy) {
+            this.filterBy.sendSent = filterBy.sendSent
         },
     },
     computed: {
@@ -69,9 +75,10 @@ export default {
                     this.count ++
                 }
             })
-
+            
+            const regexInbox = new RegExp('momo@momo.com')
             const regex = new RegExp((this.filterBy.txt), 'i')
-            return this.emails.filter(email => regex.test(email.subject) || regex.test(email.from))
+            return this.emails.filter(email => regex.test(email.subject) || regex.test(email.from)), this.emails.filter(email => regexInbox.test(email.from))
 
         },
     },

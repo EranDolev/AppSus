@@ -6,7 +6,8 @@ export default {
             <nav class="nav-folder-list">
                 <ul class="folder-list-card">
                     <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose"><i class="fa-solid fa-pencil"></i> </button></RouterLink>
-                    <button class="btn-inbox"><i class="fa-solid fa-inbox"></i>{{ this.count }} </button>
+                    <button @click="setFilter('inbox')" class="btn-inbox"><i class="fa-solid fa-inbox"></i></button>
+                    <button class="btn-inbox"><i class="fa-solid fa-inbox"></i>sent</button>
                     <!-- <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose"><i class="fa-solid fa-pencil"></i> </button></RouterLink>
                     <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose"><i class="fa-solid fa-pencil"></i> </button></RouterLink>
                     <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose"><i class="fa-solid fa-pencil"></i> </button></RouterLink> -->
@@ -14,6 +15,20 @@ export default {
             </nav>
         </div>
     `,
+        data() {
+            return {
+                filterBy: {
+                    sendSent: '',
+                },
+            }
+        },
+    methods: {
+        setFilter(value) {
+            this.filterBy.sendSent = value
+            console.log(value)
+            this.$emit('filter', this.filterBy)
+        }
+    },
     components: {
         // EmailIndex,
     },
