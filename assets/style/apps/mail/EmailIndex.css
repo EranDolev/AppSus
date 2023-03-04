@@ -114,3 +114,9 @@
   box-shadow: inset 2px 2px 0 #c0cde7, inset -2px -2px 0 #b4bfd4,
     0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
+
+.unread-count {
+  padding: 1em;
+  text-align: center;
+  font-family: robotoB;
+}

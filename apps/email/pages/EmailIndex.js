@@ -7,8 +7,8 @@ import { eventBus } from "../../../services/event-bus.service.js"
 export default {
     template: `
     <!-- <h1 class="page-greet">hello world</h1> -->
+    <section class="unread-count"> Uread Emails: {{ this.count }} </section>
     <section class="email-index">
-        <section> {{ this.count }} </section>
         <EmailFolderList @filter="setFilterInbox" />
 
         <EmailFilter @filter="setFilterBy" @filterRead="setFilterRead"/>
