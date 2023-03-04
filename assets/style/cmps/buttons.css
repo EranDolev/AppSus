@@ -100,6 +100,17 @@
   right: 2em;
 }
 
+.btn-read-email{
+  position: absolute;
+  /* top: 110%; */
+  min-width: 2px;
+  min-height: 2px;
+  height: 2em;
+  width: 2em;
+  top: 20%;
+  right: 5em;
+}
+
 .btn-compose {
   position: relative;
   width: 3em;

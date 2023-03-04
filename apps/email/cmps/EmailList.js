@@ -8,7 +8,7 @@ export default {
     <section class="email-list ">
         <ul>
             <li class="clean-list" v-for="email in emails" :key="email.id"> 
-                    <EmailPreview :email="email" @remove="remove"/>
+                    <EmailPreview :email="email" @remove="remove" @setRead="setRead"/>
             </li>
         </ul>
        
@@ -21,6 +21,9 @@ export default {
         },
         remove(emailId) {
             this.$emit('remove', emailId)
+        },
+        setRead(email) {
+            this.$emit('setRead', email)
         },
         
     },

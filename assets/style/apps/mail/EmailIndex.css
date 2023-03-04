@@ -52,7 +52,7 @@
 }
 
 .email-list .unread {
-  font-family: roboto;
+  font-family: robotoB;
   position: relative;
   border-radius: 1em;
   border: 2px solid var(--secondary-clr4);
@@ -65,7 +65,7 @@
 }
 
 .email-list .read {
-  font-family: robotoB;
+  font-family: roboto;
   position: relative;
   border-radius: 1em;
   border: 2px solid var(--secondary-clr4);
