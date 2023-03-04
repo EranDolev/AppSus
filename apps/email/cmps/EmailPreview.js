@@ -15,7 +15,7 @@ export default {
     `,
     data() {
         return {
-            showBtn: false
+            showBtn: false,
         }
     },
     methods: {
@@ -30,6 +30,11 @@ export default {
         getClass(email) {
             if (email.isRead) { return 'read' }
             else return 'unread'
+        }
+    },
+    created() {
+        if (!this.email.isRead) {
+            this.$emit('setCount', 1)
         }
     }
 }
