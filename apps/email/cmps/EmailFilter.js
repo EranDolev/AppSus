@@ -4,7 +4,7 @@ export default {
             <input 
                 v-model="filterBy.txt"
              
-                @input="filter" 
+                
                 placeholder="&#xF002;  Search mail" style="font-family:roboto, FontAwesome"
                 type="text" />
         </section>
