@@ -78,16 +78,16 @@ function _createNotes() {
 
 function query(filterBy = {}) {
     return storageService.query(NOTE_KEY)
-    // .then(emails => {
-    //     if (filterBy.txt) {
-    //         const regex = new RegExp(filterBy.txt, 'i')
-    //         emails = emails.filter(email => regex.test(email.from))
-    //     }
-    //     if (filterBy.minPrice) {
-    //         emails = emails.filter(email => email.listPrice.amount >= filterBy.minPrice)
-    //     }
-    //     return emails
-    // })
+    .then(notes => {
+        if (filterBy.txt) {
+            const regex = new RegExp(filterBy.txt, 'i')
+            notes = notes.filter(note => regex.test(note.type))
+        }
+        // if (filterBy.minPrice) {
+        //     notes = notes.filter(note => note.listPrice.amount >= filterBy.minPrice)
+        // }
+        return notes
+    })
 }
 
 function get(noteId) {

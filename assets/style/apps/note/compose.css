@@ -5,14 +5,14 @@
 }
 .form-compose-note.isShown {
   transition: 0.4s;
-  height: 20.625em;
-  width: 21.125em;
+  /* height: 20.625em;
+  width: 21.125em; */
   border-radius: 1em;
   margin-inline: 10px;
   border: var(--secondary-clr4) solid;
   font-family: roboto;
   display: grid;
-  grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 2fr;
+  /* grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 2fr; */
   background: radial-gradient(
     ellipse at bottom,
     var(--secondary-clr1) -20%,

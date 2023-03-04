@@ -1,11 +1,17 @@
 import { NoteService } from '../../../services/note.service.js'
 import NoteList from '../cmps/NoteList.js'
+import NoteFilter from '../cmps/NoteFilter.js'
 import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
     template: `
     <!-- <h1>hello note world</h1> -->
     <section class="keep-index">
+    <NoteFilter @filter="setFilterBy"/>
+            <NoteList
+                :notes="filteredNotes"
+                @remove="removeNote" />
+
     <NoteList :notes = "notes" @remove="removeNote" @save="notesToShow"/>
     <!-- <pre> {{ user }} </pre> -->
     </section>
@@ -38,9 +44,13 @@ export default {
                 this.notes = notes
             })
         },
+        setFilterBy(filterBy) {
+            this.filterBy = filterBy
+        },
     },
     components: {
         NoteList,
+        NoteFilter,
     }
 
 

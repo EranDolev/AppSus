@@ -29,7 +29,6 @@
 .note-list .note-card {
   margin: 0;
   position: relative;
-  /* width: clamp(100px, 300px, 500px); */
   height: 20.625em;
   width: 21.125em;
   display: grid;

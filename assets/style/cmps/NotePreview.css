@@ -11,3 +11,9 @@
 .todo:hover {
     cursor: pointer;
 }
+
+.sec-add-note {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
