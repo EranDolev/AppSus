@@ -62,7 +62,12 @@ button {
 }
 
 .bg-img {
-  height: 80vh;
+  height: 90vh;
+  opacity: 0.8;
+  margin-inline-start: 15em;
+  margin-block-start: 2.em;
+  filter: drop-shadow(4px 4px 1px rgb(60 64 67 / 30%) );
+  /* box-shadow: 0 2px 4px 1px rgb(60 64 67 / 30%), 0 -2px -4px 1px rgb(60 64 67 / 15%); */
 }
 
 .about-header {

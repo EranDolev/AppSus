@@ -6,7 +6,6 @@ export default {
         <button @click="toggleModal">Add Review</button>
         <section id="modal" class="book-review" v-if="showModal">
             <h2>Add a review</h2>
-            <button class="close-modal"  @click="toggleModal">X</button>
             <form @submit.prevent="save">
                 <input type="text" v-model="review.fullName" placeholder="Full Name">
                 <br>
@@ -17,6 +16,7 @@ export default {
                 <input type="date" id="readAt" v-model="review.readAt">
                 <br>
                 <button>Save Review</button>
+                <button class="close-modal"  @click="toggleModal"><i class="fa-regular fa-trash-can"></i></button>
             </form>
         </section>
     `,

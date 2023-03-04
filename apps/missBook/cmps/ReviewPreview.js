@@ -9,7 +9,7 @@ export default {
                     <h3>{{ review.fullName }}</h3>
                     <p>{{ review.rating }}</p>
                     <p>Read At: {{ review.readAt }}</p>
-                    <button @click="deleteReview(review.id)">Delete Review</button>                
+                    <button @click="deleteReview(review.id)"><i class="fa-regular fa-trash-can"></i><i class="fa-regular fa-trash-can"></i></button>                
                 </li>
             </ul>
         </section>
