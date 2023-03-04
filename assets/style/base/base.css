@@ -62,6 +62,16 @@ button {
 }
 
 .bg-img {
-  height: 100vh;
+  height: 80vh;
 }
 
+.about-header {
+  padding: 2em;
+  font-size: 2em;
+}
+
+.about{
+  /* margin-block-start: 0.5em; */
+  margin-inline-start: 5em;
+  font-size: 1.2em;
+}
