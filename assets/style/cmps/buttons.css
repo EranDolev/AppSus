@@ -335,18 +335,50 @@
   border: 0;
   border-radius: 3em;
 }
+
 .btn-close-email:hover {
   background-color: #3535354e;
   border: 0;
   border-radius: 3em;
 }
+
 .btn-read-email {
   background-color: #ffffff00;
   border: 0;
   border-radius: 3em;
 }
+
 .btn-read-email:hover {
   background-color: #3535354e;
   border: 0;
   border-radius: 3em;
+}
+
+.btn-book-close {
+  font-size: 1em;
+  min-width: 2.428em;
+  min-height: 2.428em;
+  max-width: 2.428em;
+  max-height: 2.428em;
+  background-color: #ffffff00;
+  border: 0;
+  border-radius: 3em;
+}
+.btn-book-close:hover {
+  background-color: #3535354e;
+  border: 0;
+  border-radius: 3em;
+}
+
+.a-book {
+  margin: 0;
+  margin-inline-start: 0;
+}
+
+.nav-book-btns {
+  /* position: float;
+  top: 90%; */
+  align-self: center;
+  justify-self: flex-end;
+    bottom: 0;
 }

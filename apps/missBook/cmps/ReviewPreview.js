@@ -4,7 +4,6 @@ import { eventBus } from "../../../services/event-bus.service.js"
 export default {
     template: `
         <section v-if="book">
-            <hr/>
             <ul>
                 <li class="review-list" v-for="review in reviews" :key="review.id">
                     <h3>{{ review.fullName }}</h3>
@@ -13,7 +12,6 @@ export default {
                     <button @click="deleteReview(review.id)">Delete Review</button>                
                 </li>
             </ul>
-            <hr/>
         </section>
     `,
     data() {

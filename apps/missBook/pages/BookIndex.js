@@ -9,18 +9,10 @@ import BookEdit from './BookEdit.js'
 export default {
     template:`
         <section class="book-index">
-            <RouterLink to="/app/missBook/edit">Add a book</RouterLink>
             <BookFilter @filter="setFilterBy"/>
-            <!-- <pre>{{ books }}</pre> -->
             <BookList
                 :books="filteredBooks"
                 @remove="removeBook" />
-                <!-- @show-details="showBookDetails" /> -->
-            <!-- <BookEdit @book-saved="onSaveBook"/> -->
-            <!-- <BookDetails 
-                v-if="selectedBook" 
-                @hide-details="selectedBook = null"
-                :book="selectedBook"/> -->
         </section>
     `,
     data() {

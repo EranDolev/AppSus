@@ -4,7 +4,7 @@ import { eventBus } from "../../../services/event-bus.service.js"
 export default {
     template: `
         <section class="book-edit">
-            <h2>Add a book</h2>
+            <h2>Edit book</h2>
             <form @submit.prevent="save">
                 <input type="text" v-model="book.title" placeholder="Title">
                 <section>

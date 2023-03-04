@@ -8,9 +8,11 @@ export default {
             <ul>
                 <li v-for="book in books" :key="book.id">
                     <BookPreview :book="book"/>
-                    <RouterLink :to="'/apps/missBook/'+book.id">Details</RouterLink> |
-                    <RouterLink :to="'/app/missBook/edit/'+book.id">Edit</RouterLink> |
-                    <button @click="remove(book.id)">x</button>                    
+                    <nav class="nav-book-btns">
+                        <button class="btn-book-close"> <RouterLink class="a-book"  :to="'/apps/missBook/'+book.id"><i class="fa-solid fa-book-open"></i></RouterLink></button> 
+                        <button class="btn-book-close"> <RouterLink class="a-book"  :to="'/app/missBook/edit/'+book.id"><i class="fa-solid fa-pencil"></i></RouterLink></button> 
+                        <button class="btn-book-close" @click="remove(book.id)"><i class="fa-solid fa-trash-can"></i></button>                    
+                    </nav>
                 </li>
             </ul>
 </section> 

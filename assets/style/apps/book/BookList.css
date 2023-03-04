@@ -1,0 +1,52 @@
+/** @format */
+.book-list {
+  color: var(--darkblue);
+}
+
+.book-list ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  /* grid-template-rows: repeat(auto-fit, minmax(160px, 1fr)); */
+  gap: 10px;
+  grid-auto-flow:row dense;
+  border-radius: 1.2em;
+  padding: 10px;
+  background: radial-gradient(
+    ellipse at top,
+    var(--lightorange) 0%,
+    var(--darkorange) 100%
+  );
+  /* background-color: var(--darkorange); */
+  /* background-color: var(--lightorange); */
+  list-style-type: none;
+}
+
+.book-list p {
+  font-family: josefinSlabB;
+}
+
+.book-list h2 {
+  font-family: josefinSlabB;
+  color: var(--darkorange);
+  font-size: 1.3em;
+}
+
+.book-list ul li {
+  position: relative;
+  display: flex;
+  /* height: fit-content; */
+  flex-direction: column;
+  border-radius: 1em;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: var(--secondary-clr1);
+  box-shadow:  inset -1px -1px 0 var(--secondary-clr2), 0 1px 1px 0 rgb(60 64 67 / 30%),
+  0 2px 3px 2px rgb(60 64 67 / 15%);
+}
+
+.book-list a:hover {
+  /* text-shadow: var(--darkorange) 0px -2px -2px;
+  text-shadow: var(--darkorange) 0px -1px 1px; */
+  color: var(--lightorange);
+}
+

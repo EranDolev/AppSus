@@ -1,0 +1,72 @@
+/** @format */
+.book-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.book-edit form {
+  align-self: stretch;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  align-items: baseline;
+  gap: 10px;
+  border-radius: 1em;
+  background-color: var(--secondary-clr1);
+  padding: 2em;
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+}
+
+.book-edit form button {
+  color: var(--clr4);
+  font-size: 1.2em;
+  border: 0;
+  background-color: #e2e2e25a;
+  font-family: robotoB;
+  padding: .8em;
+  border-radius: 1em;
+  min-height: 0px;
+  opacity: 1;
+  transition: .4s;
+}
+
+.book-edit form button:hover {
+  color: var(--secondary-clr1);
+  background-color: #64565647;
+  cursor: pointer;
+  opacity: .5;
+}
+
+.book-edit form input {
+  border: none;
+  border-radius: .5em;
+  background-color: #ffffff7b;
+ outline: none;
+}
+
+.book-edit form input:hover {
+  box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
+    0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+}
+
+.book-edit form input:focus {
+  box-shadow: inset 2px 2px 0 #c0cde7, inset -2px -2px 0 #b4bfd4,
+    0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+}
+
+
+.book-edit select {
+  outline: none;
+  border: 0;
+  margin-inline-start: 1em;
+  border-radius: 1em;
+  box-shadow:  inset -1px -1px 0 var(--secondary-clr2), 0 1px 1px 0 rgb(60 64 67 / 30%),
+  0 2px 3px 2px rgb(60 64 67 / 15%);
+  font-family: roboto;
+  background-color: #ffffff7b;
+  border: 0;
+}

@@ -13,21 +13,19 @@ export default {
             <h4>Description: <br> <LongText :txt="book.description"/></h4>
 
             <h2 v-if="book.pageCount > 500" >Serious Reading</h2>
-            <h2 v-else-if="book.pageCount > 200" >Decent Reading</h2>
-            <h2 v-else-if="book.pageCount < 100" >Light Reading</h2>
+            <h3 v-else-if="book.pageCount > 200" >Decent Reading</h3>
+            <h3 v-else-if="book.pageCount < 100" >Light Reading</h3>
             <h3 v-if="this.currYear - book.publishedDate > 10 ">Vintage</h3>
             <h3 v-else>New</h3>
             <img class="on-sale" v-if="book.listPrice.isOnSale" :src="'../assets/images/on-sale.png'" alt="">
-            <!-- <button @click="closeDetails">Close</button> -->
             <AddReview />
             <ReviewPreview />
-            <nav>
-                <RouterLink :to="'/apps/missBook/' + book.prevBookId">Previous Book</RouterLink> |
-                <RouterLink :to="'/apps/missBook/' + book.nextBookId">Next Book</RouterLink>
+            <nav class="nav-next-book">
+                <RouterLink class="book-nav-btns" :to="'/apps/missBook/' + book.prevBookId">Previous Book</RouterLink> 
+                <RouterLink class="book-nav-btns" to="/apps/MissBook">Back to list</RouterLink> 
+                 <RouterLink class="book-nav-btns" :to="'/apps/missBook/' + book.nextBookId">Next Book</RouterLink>  
             </nav>
-            <hr/>
 
-            <RouterLink to="/apps/MissBook">Back to list</RouterLink>
         </section>
     `,
     data() {
