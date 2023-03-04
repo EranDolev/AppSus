@@ -70,7 +70,7 @@ export default {
                 .then(savedNote => {
                     eventBus.emit('show-msg', { txt: 'Note saved', type: 'success' })
                     this.note = savedNote
-                    this.$router.push('/apps/keep')
+                    // this.$router.push('/apps/keep')
                     this.$emit('save', this.note)
                 })
                 .catch(err => {

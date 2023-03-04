@@ -51,14 +51,17 @@ export default {
     },
     computed: {
         filteredNotes() {
+
             const regex = new RegExp((this.filterBy.txt), 'i')
             console.log(this.notes)
             return this.notes.filter(note => regex.test(note.info.title))
-        },
-        components: {
-            NoteList,
-            NoteFilter,
-        }
 
+        },
+    },
+    components: {
+        NoteList,
+        NoteFilter,
     }
+
+
 }
