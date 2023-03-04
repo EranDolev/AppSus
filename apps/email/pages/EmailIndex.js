@@ -26,7 +26,7 @@ export default {
             emails: [],
             filterBy: {
                 txt: '',
-                sendSent: 'inbox'
+                sendSent: ''
             },
             user: {},
             count: 0,
@@ -60,14 +60,20 @@ export default {
         },
 
         setFilterBy(filterBy) {
+            
             this.filterBy.txt = filterBy.txt
         },
         setFilterInbox(filterBy) {
+            EmailService.query()
+            .then(emails => {
+                this.emails = emails
+            })
             this.filterBy.sendSent = filterBy.sendSent
         },
     },
     computed: {
         filteredEmails() {
+
             this.count = 0
             this.emails.forEach((email) => {
                 if (!email.isRead) {
@@ -75,10 +81,21 @@ export default {
                     this.count ++
                 }
             })
-            
-            const regexInbox = new RegExp('momo@momo.com')
+
+            const sender = 'user@appsus.com'
+            if (this.filterBy.sendSent === 'sent'){
+                console.log( this.filterBy.sendSent)
+                console.log( this.emails)
+                this.emails = this.emails.filter(email => email.from === sender)
+                console.log( this.emails)
+            } else {
+                console.log( this.emails)
+                this.emails = this.emails.filter(email => email.from !== sender) 
+                console.log( this.emails)
+            }
+
             const regex = new RegExp((this.filterBy.txt), 'i')
-            return this.emails.filter(email => regex.test(email.subject) || regex.test(email.from)), this.emails.filter(email => regexInbox.test(email.from))
+            return this.emails.filter(email => regex.test(email.subject) || regex.test(email.from))
 
         },
     },
