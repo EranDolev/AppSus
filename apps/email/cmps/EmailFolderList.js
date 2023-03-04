@@ -7,7 +7,7 @@ export default {
                 <ul class="folder-list-card">
                     <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose"><i class="fa-solid fa-pencil"></i> </button></RouterLink>
                     <button @click="setFilter('inbox')" class="btn-inbox"><i class="fa-solid fa-inbox"></i></button>
-                    <button @click="setFilter('sent')" class="btn-inbox"><i class="fa-solid fa-inbox"></i>sent</button>
+                    <button @click="setFilter('sent')" class="btn-sent"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
                     <!-- <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose"><i class="fa-solid fa-pencil"></i> </button></RouterLink>
                     <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose"><i class="fa-solid fa-pencil"></i> </button></RouterLink>
                     <RouterLink :to="'/apps/email/email-compose/'"><button class="btn-compose"><i class="fa-solid fa-pencil"></i> </button></RouterLink> -->
