@@ -6,7 +6,7 @@ export default {
         <h3> {{email.subject }}</h3>
         <h4>From: {{ email.from }}</h4>
         <h2>{{ email.body }}</h2>
-        <RouterLink :to="'/apps/email'"><button class="btn-backmail"><i class="fa-solid fa-pencil"></i> </button></RouterLink>
+        <RouterLink :to="'/apps/email'"><button class="btn-backmail"><i class="fa-solid fa-circle-arrow-left"></i> </button></RouterLink>
     </section>
     `,
     data() {
