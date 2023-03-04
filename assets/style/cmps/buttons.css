@@ -329,3 +329,24 @@
   border: 0;
   opacity: .5;
 }
+
+.btn-close-email {
+  background-color: #ffffff00;
+  border: 0;
+  border-radius: 3em;
+}
+.btn-close-email:hover {
+  background-color: #3535354e;
+  border: 0;
+  border-radius: 3em;
+}
+.btn-read-email {
+  background-color: #ffffff00;
+  border: 0;
+  border-radius: 3em;
+}
+.btn-read-email:hover {
+  background-color: #3535354e;
+  border: 0;
+  border-radius: 3em;
+}
