@@ -1,3 +1,4 @@
+import { EmailService } from "../../../services/Email.services.js";
 export default {
     props: ['email'],
     template: `
@@ -26,6 +27,12 @@ export default {
         setRead(email) {
             console.log('hello set read')
             this.$emit('setRead', email)
+            if(!this.email.isRead){
+                this.$emit('setCount', 1)
+            } else {
+                this.$emit('setCount', -1)
+            }
+            EmailService.save(email)
         },
         getClass(email) {
             if (email.isRead) { return 'read' }
